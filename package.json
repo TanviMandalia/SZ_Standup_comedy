@@ -1,0 +1,20 @@
+{
+  "name": "saurabh-zinzuvadiya-portfolio",
+  "version": "1.0.0",
+  "description": "Official Stand-Up Comedian Portfolio Website for Saurabh Zinzuvadiya (@funnysaurabh)",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'Static assets ready for deployment'"
+  },
+  "keywords": [
+    "stand-up",
+    "comedy",
+    "saurabh-zinzuvadiya",
+    "portfolio",
+    "vercel"
+  ],
+  "author": "Saurabh Zinzuvadiya",
+  "license": "MIT"
+}
