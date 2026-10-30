@@ -1386,61 +1386,226 @@ section {
 }
 
 /* ===================================================================
-   11. CLIENTS SECTION (Clean, Monochrome, High-Fidelity)
+   11. AUDIENCE REVIEWS & ATTENDEE EXPERIENCES (Verified Show Reviews)
    =================================================================== */
-.section-clients {
+.section-audience {
   background-color: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.client-category-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.client-cat-title {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.client-logo-grid {
+/* Trust & Metrics Bar */
+.audience-stats-bar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
+  margin-bottom: 3.5rem;
 }
 
-.client-badge-card {
-  background-color: var(--bg-surface);
+.stat-pill {
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  padding: 1.6rem 1rem;
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  text-align: center;
+  gap: 0.35rem;
   transition: all var(--transition-fast);
 }
 
-.client-badge-card span {
+.stat-pill:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+  background: var(--bg-surface-hover);
+}
+
+.stat-stars {
+  color: #ffda05;
+  font-size: 1.05rem;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* 6-Card Review Grid */
+.audience-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.attendee-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-smooth);
+  position: relative;
+}
+
+.attendee-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  background: var(--bg-surface-hover);
+}
+
+.attendee-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.attendee-stars {
+  color: #ffda05;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}
+
+.attendee-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(123, 165, 110, 0.12);
+  border: 1px solid rgba(123, 165, 110, 0.35);
+  color: var(--accent-light);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  letter-spacing: 0.03em;
+}
+
+.attendee-quote {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  margin-bottom: 1.6rem;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.attendee-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.15rem;
+}
+
+.attendee-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(123, 165, 110, 0.25), rgba(123, 165, 110, 0.05));
+  border: 1px solid rgba(123, 165, 110, 0.4);
+  color: var(--accent-light);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.attendee-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  overflow: hidden;
+}
+
+.attendee-name {
   font-family: var(--font-display);
   font-size: 0.92rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
-  transition: color var(--transition-fast);
-}
-
-.client-badge-card:hover {
-  background-color: var(--bg-surface-hover);
-  border-color: var(--border-accent);
-  transform: translateY(-2px);
-}
-
-.client-badge-card:hover span {
   color: var(--text-primary);
+  margin: 0;
+}
+
+.attendee-show-info {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Post-Show Callout Card */
+.post-show-callout {
+  background: linear-gradient(135deg, rgba(20, 28, 22, 0.95), rgba(12, 17, 14, 0.95));
+  border: 1px dashed rgba(123, 165, 110, 0.45);
+  border-radius: 20px;
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.callout-kicker {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.callout-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.callout-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 580px;
+  line-height: 1.5;
+}
+
+.callout-desc a {
+  color: var(--accent-light);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.callout-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
 }
 
 /* ===================================================================
