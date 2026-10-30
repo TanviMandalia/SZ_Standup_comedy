@@ -34,6 +34,7 @@
   /* Spacing & Transitions */
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ===================================================================
@@ -48,7 +49,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 40px;
 }
 
 body {
@@ -199,19 +200,6 @@ section {
   box-shadow: 0 6px 18px rgba(123, 165, 110, 0.3);
 }
 
-.btn-outline-nav {
-  background-color: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-subtle);
-  padding: 0.5rem 1.15rem;
-  font-size: 0.85rem;
-}
-
-.btn-outline-nav:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
 .btn-link {
   font-family: var(--font-display);
   font-size: 0.95rem;
@@ -244,181 +232,392 @@ section {
 }
 
 /* ===================================================================
-   4. NAVIGATION BAR (Site Header)
+   4. TOP MINIMAL BAR (Clean Branding Header)
    =================================================================== */
-.site-header {
-  position: sticky;
+.site-header-minimal {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(14, 18, 17, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  z-index: 1000;
-  transition: background var(--transition-fast);
+  background: linear-gradient(to bottom, rgba(14, 18, 17, 0.92) 0%, rgba(14, 18, 17, 0.6) 80%, transparent 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 900;
+  padding: 1.25rem 0;
+  pointer-events: none; /* Allows clicks through except on interactive children */
 }
 
-.nav-container {
+.nav-container-minimal {
   max-width: 1220px;
   margin: 0 auto;
-  padding: 1.15rem 1.5rem;
+  padding: 0 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  pointer-events: all;
 }
 
 .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.nav-avatar-wrap {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.nav-avatar-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 10%;
+  border: 2px solid var(--accent);
+}
+
+.nav-status-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.brand-text-wrap {
   display: flex;
   flex-direction: column;
 }
 
 .brand-title {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   color: var(--text-primary);
 }
 
 .brand-subtitle {
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
   color: var(--accent);
   font-weight: 600;
   margin-top: -2px;
 }
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-link {
-  font-family: var(--font-display);
-  font-size: 0.92rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  position: relative;
-  padding: 0.25rem 0;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--text-primary);
-}
-
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--accent);
-  border-radius: 2px;
-}
-
-.nav-action {
+.header-right-actions {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
-.mobile-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  flex-direction: column;
-  gap: 6px;
+.header-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
 }
 
-.mobile-toggle .bar {
-  width: 24px;
+.header-social-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background-color: var(--accent-subtle);
+}
+
+.btn-header-book {
+  padding: 0.48rem 1.15rem;
+  font-size: 0.85rem;
+}
+
+/* ===================================================================
+   5. SAPAN VERMA-INSPIRED ANIMATED BOTTOM-RIGHT SIDEBAR NAVIGATION DOCK
+   =================================================================== */
+.sidebar-nav-dock {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 2.2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  user-select: none;
+}
+
+.dock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+  transition: all var(--transition-smooth);
+}
+
+/* Utility link (WhatsApp) at top of dock */
+.dock-utilities {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 0.35rem;
+}
+
+.dock-util-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background-color: rgba(14, 18, 17, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.dock-util-btn:hover {
+  background-color: #121814;
+  border-color: var(--accent);
+  color: var(--accent-light);
+  transform: translateX(-3px);
+}
+
+/* Vertical navigation list */
+.dock-vertical-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.dock-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+.dock-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.85rem 0.4rem 1rem;
+  border-radius: 9999px;
+  background-color: rgba(18, 24, 20, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-smooth);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.dock-text {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  transition: all var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.dock-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+}
+
+.indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--text-dim);
+  transition: all var(--transition-smooth);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   SAPAN VERMA KINETIC SCROLL STATES:
+   .expanded-sec -> currently active section (bold, accent, fully expanded)
+   .shrinked-sec -> section already passed/scrolled past (moved up to right, collapsed dot)
+   ─────────────────────────────────────────────────────────────────── */
+
+/* 1. Active Expanded Section */
+.dock-item.expanded-sec .dock-link {
+  background-color: #0c120e;
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(123, 165, 110, 0.28);
+  transform: translateX(-4px);
+}
+
+.dock-item.expanded-sec .dock-text {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.dock-item.expanded-sec .indicator-dot {
+  width: 9px;
+  height: 9px;
+  background-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* 2. Passed Section (Moved up to right & text condensed/shrinked) */
+.dock-item.shrinked-sec {
+  transform: translate(6px, -2px);
+  opacity: 0.55;
+}
+
+.dock-item.shrinked-sec .dock-link {
+  background-color: rgba(14, 18, 17, 0.45);
+  border-color: transparent;
+  padding: 0.3rem 0.55rem;
+}
+
+.dock-item.shrinked-sec .dock-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.dock-item.shrinked-sec .indicator-dot {
+  background-color: var(--accent-dark);
+  width: 5px;
+  height: 5px;
+}
+
+/* 3. Hovering over the Dock expands ALL items (Reveals full elevator) */
+.sidebar-nav-dock:hover .dock-item.shrinked-sec {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.sidebar-nav-dock:hover .dock-item.shrinked-sec .dock-link {
+  background-color: rgba(18, 24, 20, 0.85);
+  border-color: var(--border-subtle);
+  padding: 0.4rem 0.85rem 0.4rem 1rem;
+}
+
+.sidebar-nav-dock:hover .dock-item.shrinked-sec .dock-text {
+  opacity: 1;
+  width: auto;
+}
+
+/* Dock Item Hover */
+.dock-link:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-accent);
+  transform: translateX(-5px);
+}
+
+.dock-link:hover .dock-text {
+  color: var(--accent-light);
+}
+
+.dock-link:hover .indicator-dot {
+  background-color: var(--accent);
+}
+
+/* Back to Top button */
+.dock-back-top {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: all var(--transition-smooth);
+}
+
+.dock-back-top.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.back-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  background-color: var(--accent);
+  color: #0c120e;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(123, 165, 110, 0.4);
+}
+
+.back-top-btn:hover {
+  background-color: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+/* Mobile Dock Trigger Button (Hidden on Desktop) */
+.mobile-dock-trigger {
+  display: none;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 1.15rem;
+  background-color: #0c120e;
+  border: 1px solid var(--accent);
+  border-radius: 9999px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.trigger-active-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-light);
+}
+
+.trigger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.t-bar {
+  width: 14px;
   height: 2px;
-  background-color: var(--text-primary);
+  background-color: #ffffff;
   border-radius: 2px;
   transition: all var(--transition-fast);
 }
 
-/* Mobile Drawer */
-.mobile-drawer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(14, 18, 17, 0.98);
-  backdrop-filter: blur(20px);
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 6rem 2rem 3rem;
-  transform: translateY(-100%);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.mobile-drawer.open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: all;
-}
-
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.mobile-link {
-  font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.mobile-link:hover {
-  color: var(--accent);
-}
-
-.mobile-drawer-footer {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 2rem;
-}
-
-.drawer-contact-title {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-dim);
-  margin-bottom: 0.5rem;
-}
-
-.drawer-email {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.drawer-socials {
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: var(--text-muted);
-}
-
 /* ===================================================================
-   5. HERO SECTION
+   6. HERO SECTION
    =================================================================== */
 .hero-section {
-  padding-top: 4rem;
+  padding-top: 7rem;
   padding-bottom: 5.5rem;
   position: relative;
 }
@@ -449,12 +648,80 @@ section {
   object-fit: cover;
   object-position: center 15%;
   filter: contrast(1.05) brightness(0.96);
+  transition: opacity 0.3s ease;
 }
 
 .hero-image-gradient {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(14, 18, 17, 0.85) 0%, transparent 40%);
+}
+
+.hero-live-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  background-color: rgba(14, 18, 17, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-accent);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-light);
+  z-index: 5;
+}
+
+.live-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.hero-angle-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.angle-prompt {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.angle-btn {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.angle-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.angle-btn.active {
+  background-color: var(--accent-subtle);
+  border-color: var(--accent);
+  color: var(--accent-light);
 }
 
 .hero-text-content {
@@ -557,12 +824,62 @@ section {
 }
 
 /* ===================================================================
-   6. UPCOMING SHOWS (Sapan Verma Style List Units)
+   7. UPCOMING SHOWS (Sapan Verma Style List Units + Tour Artwork)
    =================================================================== */
 .section-shows {
   background-color: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
+}
+
+.tour-banner-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  aspect-ratio: 16 / 7;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.tour-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: brightness(0.65) contrast(1.1);
+}
+
+.tour-banner-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(14, 18, 17, 0.95) 0%, rgba(14, 18, 17, 0.4) 60%, transparent 100%);
+}
+
+.tour-tag {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.tour-headline {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.tour-subtext {
+  font-size: 1rem;
+  color: var(--text-secondary);
 }
 
 .tickets-list {
@@ -650,7 +967,7 @@ section {
 }
 
 /* ===================================================================
-   7. VIDEOS SECTION
+   8. VIDEOS SECTION
    =================================================================== */
 .section-videos {
   background-color: var(--bg-primary);
@@ -765,7 +1082,7 @@ section {
 }
 
 /* ===================================================================
-   8. ABOUT SECTION (Two Columns with Bio & Portrait)
+   9. ABOUT SECTION (Two Columns with Bio & Real Stage Portraits)
    =================================================================== */
 .section-about {
   background-color: var(--bg-secondary);
@@ -842,7 +1159,8 @@ section {
 .portrait-caption {
   padding: 1.25rem 1.5rem;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--bg-surface);
 }
 
@@ -858,8 +1176,52 @@ section {
   color: var(--accent);
 }
 
+.verified-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  background-color: var(--accent-subtle);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+
+.about-secondary-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+
+.about-sec-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border-accent);
+}
+
+.sec-card-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.sec-card-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-top: 0.15rem;
+}
+
 /* ===================================================================
-   9. REVIEWS SECTION
+   10. REVIEWS SECTION
    =================================================================== */
 .section-reviews {
   background-color: var(--bg-primary);
@@ -922,7 +1284,7 @@ section {
 }
 
 /* ===================================================================
-   10. CLIENTS SECTION (Clean, Monochrome, High-Fidelity)
+   11. CLIENTS SECTION (Clean, Monochrome, High-Fidelity)
    =================================================================== */
 .section-clients {
   background-color: var(--bg-secondary);
@@ -980,7 +1342,7 @@ section {
 }
 
 /* ===================================================================
-   11. CONTACT & BOOKING SECTION
+   12. CONTACT & BOOKING SECTION
    =================================================================== */
 .section-contact {
   background-color: var(--bg-primary);
@@ -1131,7 +1493,7 @@ section {
 }
 
 /* ===================================================================
-   12. FOOTER
+   13. FOOTER
    =================================================================== */
 .site-footer {
   background-color: #0a0d0c;
@@ -1237,7 +1599,7 @@ section {
 }
 
 /* ===================================================================
-   13. VIDEO MODAL PLAYER
+   14. VIDEO MODAL PLAYER
    =================================================================== */
 .video-modal {
   position: fixed;
@@ -1316,7 +1678,7 @@ section {
 }
 
 /* ===================================================================
-   14. RESPONSIVE DESIGN (Tablets & Mobile Viewports)
+   15. RESPONSIVE DESIGN (Tablets & Mobile Viewports)
    =================================================================== */
 @media (max-width: 1024px) {
   .hero-layout {
@@ -1359,13 +1721,47 @@ section {
 }
 
 @media (max-width: 768px) {
-  .nav-menu,
-  .btn-outline-nav {
+  .site-header-minimal {
+    padding: 0.9rem 0;
+  }
+
+  .header-social-pill {
     display: none;
   }
 
-  .mobile-toggle {
+  .sidebar-nav-dock {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .mobile-dock-trigger {
     display: flex;
+  }
+
+  .dock-container {
+    display: none;
+    background-color: rgba(14, 18, 17, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-accent);
+    padding: 1.25rem;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+    margin-bottom: 0.75rem;
+  }
+
+  .sidebar-nav-dock.mobile-open .dock-container {
+    display: flex;
+  }
+
+  .dock-item.shrinked-sec .dock-text {
+    opacity: 1;
+    width: auto;
+  }
+
+  .dock-item.shrinked-sec {
+    transform: none;
+    opacity: 0.75;
   }
 
   section {
@@ -1411,243 +1807,4 @@ section {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-}
-
-
-/* ===================================================================
-   AUTHENTIC SAURABH IMAGES & ANGLE SWITCHER ADDITIONS
-   =================================================================== */
-.nav-avatar-wrap {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: visible;
-  flex-shrink: 0;
-}
-
-.nav-avatar-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 10%;
-  border: 2px solid var(--accent);
-}
-
-.nav-status-dot {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 10px;
-  height: 10px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  border: 2px solid var(--bg-primary);
-}
-
-.nav-brand {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.85rem;
-}
-
-.mobile-avatar-block {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 2rem;
-}
-
-.mobile-avatar-img {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--accent);
-}
-
-.mobile-avatar-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-primary);
-}
-
-.mobile-avatar-tag {
-  font-size: 0.82rem;
-  color: var(--accent);
-}
-
-/* Tour Artwork Banner Card */
-.tour-banner-card {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-bottom: 2rem;
-  aspect-ratio: 16 / 7;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-}
-
-.tour-banner-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  filter: brightness(0.65) contrast(1.1);
-}
-
-.tour-banner-overlay {
-  position: absolute;
-  inset: 0;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: linear-gradient(to top, rgba(14, 18, 17, 0.95) 0%, rgba(14, 18, 17, 0.4) 60%, transparent 100%);
-}
-
-.tour-tag {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
-}
-
-.tour-headline {
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 0.4rem;
-}
-
-.tour-subtext {
-  font-size: 1rem;
-  color: var(--text-secondary);
-}
-
-/* Real Stage Photo Framing & Live Badge */
-.hero-live-badge {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.9rem;
-  background-color: rgba(14, 18, 17, 0.85);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-accent);
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--accent-light);
-  z-index: 5;
-}
-
-.live-pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
-}
-
-.hero-angle-switcher {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.angle-prompt {
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-dim);
-  font-weight: 600;
-}
-
-.angle-btn {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0.45rem 1rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.angle-btn:hover {
-  border-color: var(--accent);
-  color: var(--text-primary);
-}
-
-.angle-btn.active {
-  background-color: var(--accent-subtle);
-  border-color: var(--accent);
-  color: var(--accent-light);
-}
-
-/* About Secondary Photo Thumbnail */
-.about-secondary-card {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin-top: 1.25rem;
-  padding: 1rem 1.25rem;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 14px;
-}
-
-.about-sec-img {
-  width: 72px;
-  height: 72px;
-  border-radius: 10px;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 1px solid var(--border-accent);
-}
-
-.sec-card-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-}
-
-.sec-card-sub {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  margin-top: 0.15rem;
-}
-
-.verified-tag {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--accent);
-  background-color: var(--accent-subtle);
-  padding: 0.2rem 0.6rem;
-  border-radius: 6px;
-  letter-spacing: 0.04em;
-}
-
-.portrait-caption {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }

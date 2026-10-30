@@ -1,59 +1,125 @@
 /**
  * SAURABH ZINZUVADIYA — OFFICIAL STAND-UP COMEDY PORTFOLIO
- * Interaction Engine: Clean Navigation, Video Modal & Form Validation
+ * Interaction Engine: Sapan Verma-Style Kinetic Sidebar Navigation, Video Modal & Form Validation
  */
 
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  // 1. Mobile Menu Drawer Navigation
-  const mobileToggle = document.getElementById('mobileToggle');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
+  // 1. SAPAN VERMA KINETIC SIDEBAR NAVIGATION ENGINE
+  const dockItems = document.querySelectorAll('.dock-item');
+  const sections = document.querySelectorAll('section[id]');
+  const dockBackTop = document.getElementById('dockBackTop');
+  const triggerActiveLabel = document.getElementById('triggerActiveLabel');
+  const mobileDockTrigger = document.getElementById('mobileDockTrigger');
+  const sidebarDock = document.getElementById('sidebarDock');
 
-  if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', function () {
-      const isOpen = mobileDrawer.classList.contains('open');
-      if (isOpen) {
-        mobileDrawer.classList.remove('open');
-        document.body.style.overflow = '';
-      } else {
-        mobileDrawer.classList.add('open');
-        document.body.style.overflow = 'hidden';
+  let activeSectionId = 'home';
+
+  function updateKineticSidebar() {
+    const scrollY = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    let currentId = 'home';
+
+    // Find currently active section in viewport
+    sections.forEach(function (section) {
+      const sectionTop = section.offsetTop - 180;
+      const sectionHeight = section.offsetHeight;
+      const id = section.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentId = id;
       }
     });
 
-    mobileLinks.forEach(function (link) {
+    if (currentId !== activeSectionId) {
+      activeSectionId = currentId;
+
+      // Update mobile trigger button label
+      if (triggerActiveLabel) {
+        triggerActiveLabel.textContent = currentId.toUpperCase();
+      }
+
+      // Sapan Verma Animation Logic:
+      // - Items before active section: .shrinked-sec (move up to right & text condensed)
+      // - Active item: .expanded-sec (expanded, highlighted with glow)
+      // - Items after active section: normal default state
+      let foundActive = false;
+
+      dockItems.forEach(function (item) {
+        const itemSec = item.getAttribute('data-sec');
+
+        if (itemSec === currentId) {
+          item.classList.add('expanded-sec');
+          item.classList.remove('shrinked-sec');
+          foundActive = true;
+        } else if (!foundActive) {
+          // Sections we already passed / gone -> shrink and move up to right
+          item.classList.add('shrinked-sec');
+          item.classList.remove('expanded-sec');
+        } else {
+          // Sections ahead
+          item.classList.remove('expanded-sec');
+          item.classList.remove('shrinked-sec');
+        }
+      });
+    }
+
+    // Toggle Back To Top visibility
+    if (dockBackTop) {
+      if (scrollY > windowHeight * 0.4) {
+        dockBackTop.classList.add('visible');
+      } else {
+        dockBackTop.classList.remove('visible');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', updateKineticSidebar, { passive: true });
+  updateKineticSidebar(); // initial run
+
+  // Mobile Dock Trigger toggle
+  if (mobileDockTrigger && sidebarDock) {
+    mobileDockTrigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      sidebarDock.classList.toggle('mobile-open');
+    });
+
+    // Close when clicking anywhere outside
+    document.addEventListener('click', function (e) {
+      if (!sidebarDock.contains(e.target)) {
+        sidebarDock.classList.remove('mobile-open');
+      }
+    });
+
+    // Close when clicking a dock link on mobile
+    const dockLinks = document.querySelectorAll('.dock-link');
+    dockLinks.forEach(function (link) {
       link.addEventListener('click', function () {
-        mobileDrawer.classList.remove('open');
-        document.body.style.overflow = '';
+        sidebarDock.classList.remove('mobile-open');
       });
     });
   }
 
-  // 2. Active Navigation Highlighting on Scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
+  // 2. Interactive Camera Angle Switcher (Real Stage Photos)
+  const heroStagePhoto = document.getElementById('heroStagePhoto');
+  const angleBtns = document.querySelectorAll('.angle-btn');
 
-  function updateActiveNav() {
-    const scrollY = window.pageYOffset;
-    sections.forEach(function (section) {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 120;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach(function (link) {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + sectionId) {
-            link.classList.add('active');
-          }
-        });
+  angleBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const newSrc = btn.getAttribute('data-src');
+      if (heroStagePhoto && newSrc) {
+        heroStagePhoto.style.opacity = '0.35';
+        heroStagePhoto.style.transition = 'opacity 0.25s ease';
+        setTimeout(function () {
+          heroStagePhoto.src = newSrc;
+          heroStagePhoto.style.opacity = '1';
+        }, 150);
       }
+      angleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     });
-  }
-
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  });
 
   // 3. Video Modal Player
   const videoModal = document.getElementById('videoModal');
@@ -136,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
       }
 
-      // UI Loading state
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<span>Submitting Enquiry...</span>';
 
@@ -161,24 +226,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 700);
     });
   }
-
-  // 5. Interactive Camera Angle Switcher (Real Stage Photos)
-  const heroStagePhoto = document.getElementById('heroStagePhoto');
-  const angleBtns = document.querySelectorAll('.angle-btn');
-
-  angleBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      const newSrc = btn.getAttribute('data-src');
-      if (heroStagePhoto && newSrc) {
-        heroStagePhoto.style.opacity = '0.4';
-        heroStagePhoto.style.transition = 'opacity 0.25s ease';
-        setTimeout(function () {
-          heroStagePhoto.src = newSrc;
-          heroStagePhoto.style.opacity = '1';
-        }, 150);
-      }
-      angleBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
 });
