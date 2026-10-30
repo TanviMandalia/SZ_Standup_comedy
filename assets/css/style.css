@@ -5,33 +5,35 @@
    =================================================================== */
 
 :root {
-  /* Core Color Palette: Retro Comedy Club Noir & Stage Shadows */
-  --bg-primary: #0a0b0e;
-  --bg-secondary: #121419;
-  --bg-surface: #1a1d24;
-  --bg-surface-hover: #232730;
+  /* Core Color Palette: First Color Theme (Sophisticated Dark Forest & Sage) */
+  --bg-primary: #0e1211;
+  --bg-secondary: #141a16;
+  --bg-surface: #1b221e;
+  --bg-surface-hover: #222c26;
 
-  /* Accent Color: Classic Stand-Up Spotlight Comedy Yellow */
-  --accent: #ffda05;
-  --accent-light: #ffe853;
-  --accent-dark: #e0be00;
-  --accent-subtle: rgba(255, 218, 5, 0.12);
-  --accent-glow: rgba(255, 218, 5, 0.35);
+  /* Primary Accent: Signature Minimal Sage / Olive Green */
+  --accent: #7ba56e;
+  --accent-light: #94c285;
+  --accent-dark: #648a58;
+  --accent-subtle: rgba(123, 165, 110, 0.15);
 
-  /* Retro Warmth Accents */
-  --retro-amber: #ff9f1c;
-  --retro-gold: #f5b700;
-  --retro-cream: #fff9e6;
+  /* Special Yellow Touch Accents (Spotlight Gold / Yellow Highlights) */
+  --yellow-touch: #ffda05;
+  --yellow-light: #ffe853;
+  --yellow-glow: rgba(255, 218, 5, 0.4);
+  --yellow-subtle: rgba(255, 218, 5, 0.14);
+  --border-yellow: rgba(255, 218, 5, 0.4);
 
   /* Clean Borders */
   --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(255, 218, 5, 0.38);
+  --border-accent: rgba(123, 165, 110, 0.35);
 
   /* Typography Colors */
   --text-primary: #ffffff;
-  --text-secondary: #eef0f4;
-  --text-muted: #9fa6b2;
-  --text-dim: #6d7482;
+  --text-secondary: #e2e6e3;
+  --text-muted: #95a199;
+  --text-dim: #6b776f;
+  --text-cream: #f6f3eb;
 
   /* Fonts */
   --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -169,7 +171,7 @@ section {
 
 .btn-primary {
   background-color: var(--accent);
-  color: #0a0b0e;
+  color: #0c120e;
   border-color: var(--accent);
 }
 
@@ -177,7 +179,7 @@ section {
   background-color: var(--accent-light);
   border-color: var(--accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 218, 5, 0.28);
+  box-shadow: 0 8px 24px rgba(123, 165, 110, 0.28);
 }
 
 .btn-secondary {
@@ -195,7 +197,7 @@ section {
 
 .btn-ticket {
   background-color: var(--accent);
-  color: #0a0b0e;
+  color: #0c120e;
   padding: 0.65rem 1.45rem;
   font-size: 0.9rem;
 }
@@ -203,7 +205,7 @@ section {
 .btn-ticket:hover {
   background-color: var(--accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255, 218, 5, 0.3);
+  box-shadow: 0 6px 18px rgba(123, 165, 110, 0.3);
 }
 
 .btn-link {
@@ -390,7 +392,7 @@ section {
   background: rgba(12, 17, 14, 0.78);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 218, 5, 0.25);
+  border: 1px solid rgba(123, 165, 110, 0.25);
   border-radius: 9999px;
   color: #a3b8aa;
   font-family: var(--font-display);
@@ -416,7 +418,7 @@ section {
   border-color: var(--accent);
   color: #ffffff;
   transform: translateX(-3px);
-  box-shadow: 0 4px 16px rgba(255, 218, 5, 0.25);
+  box-shadow: 0 4px 16px rgba(123, 165, 110, 0.25);
 }
 
 /* 5.2 Vertical Elevator Track & Menu */
@@ -438,8 +440,8 @@ section {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(255, 218, 5, 0.22) 15%,
-    rgba(255, 218, 5, 0.22) 85%,
+    rgba(123, 165, 110, 0.22) 15%,
+    rgba(123, 165, 110, 0.22) 85%,
     transparent 100%
   );
   pointer-events: none;
@@ -504,7 +506,7 @@ section {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 218, 5, 0.45);
+  border: 1.5px solid rgba(123, 165, 110, 0.45);
   background: rgba(14, 20, 16, 0.8);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -525,9 +527,9 @@ section {
   background: rgba(12, 18, 14, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 218, 5, 0.55);
+  border: 1px solid rgba(123, 165, 110, 0.55);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45),
-              0 0 14px rgba(255, 218, 5, 0.22);
+              0 0 14px rgba(123, 165, 110, 0.22);
   transform: translateX(-2px);
   padding: 0.2rem 0.45rem 0.2rem 0.72rem;
 }
@@ -540,19 +542,19 @@ section {
 }
 
 .dock-item.expanded-sec .indicator-dot {
-  background: var(--accent);
-  border-color: #ffe853;
-  box-shadow: 0 0 8px var(--accent);
-  transform: scale(1.15);
+  background: var(--yellow-touch);
+  border-color: #ffffff;
+  box-shadow: 0 0 10px var(--yellow-touch);
+  transform: scale(1.18);
   animation: dockDotPulse 2.4s infinite;
 }
 
 @keyframes dockDotPulse {
   0%, 100% {
-    box-shadow: 0 0 6px var(--accent);
+    box-shadow: 0 0 6px var(--yellow-touch);
   }
   50% {
-    box-shadow: 0 0 14px var(--accent), 0 0 4px #ffffff;
+    box-shadow: 0 0 14px var(--yellow-touch), 0 0 4px #ffffff;
   }
 }
 
@@ -581,7 +583,7 @@ section {
 .dock-item.shrinked-sec .indicator-dot {
   width: 5px;
   height: 5px;
-  background: rgba(255, 218, 5, 0.35);
+  background: rgba(123, 165, 110, 0.35);
   border-color: transparent;
 }
 
@@ -596,7 +598,7 @@ section {
   background: rgba(14, 20, 16, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-color: rgba(255, 218, 5, 0.2);
+  border-color: rgba(123, 165, 110, 0.2);
   padding: 0.16rem 0.3rem 0.16rem 0.6rem;
 }
 
@@ -610,13 +612,13 @@ section {
   width: 6px;
   height: 6px;
   background: rgba(14, 20, 16, 0.8);
-  border: 1px solid rgba(255, 218, 5, 0.45);
+  border: 1px solid rgba(123, 165, 110, 0.45);
 }
 
 /* Individual Item Hover */
 .dock-link:hover {
   background: rgba(20, 28, 22, 0.95);
-  border-color: rgba(255, 218, 5, 0.45);
+  border-color: rgba(123, 165, 110, 0.45);
   transform: translateX(-4px);
 }
 
@@ -626,9 +628,9 @@ section {
 }
 
 .dock-link:hover .indicator-dot {
-  background: var(--accent);
-  border-color: var(--accent);
-  box-shadow: 0 0 6px var(--accent);
+  background: var(--yellow-touch);
+  border-color: var(--yellow-touch);
+  box-shadow: 0 0 8px var(--yellow-touch);
 }
 
 /* 5.3 Discrete Back to Top Button */
@@ -655,7 +657,7 @@ section {
   background: rgba(12, 17, 14, 0.75);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 218, 5, 0.22);
+  border: 1px solid rgba(123, 165, 110, 0.22);
   color: #8c9e92;
   font-family: var(--font-display);
   font-size: 0.68rem;
@@ -672,7 +674,7 @@ section {
   border-color: var(--accent);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(255, 218, 5, 0.25);
+  box-shadow: 0 4px 16px rgba(123, 165, 110, 0.25);
 }
 
 .back-top-arrow {
@@ -692,7 +694,7 @@ section {
   background: rgba(12, 18, 14, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 218, 5, 0.4);
+  border: 1px solid rgba(123, 165, 110, 0.4);
   border-radius: 9999px;
   color: #ffffff;
   font-family: var(--font-display);
@@ -709,8 +711,8 @@ section {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 6px var(--accent);
+  background: var(--yellow-touch);
+  box-shadow: 0 0 6px var(--yellow-touch);
 }
 
 .trigger-chevron {
@@ -728,7 +730,7 @@ section {
   padding-top: 7rem;
   padding-bottom: 5.5rem;
   position: relative;
-  background: radial-gradient(ellipse at 50% -10%, rgba(255, 218, 5, 0.16) 0%, rgba(255, 218, 5, 0.03) 45%, transparent 75%);
+  background: radial-gradient(ellipse at 50% -10%, rgba(255, 218, 5, 0.09) 0%, rgba(255, 218, 5, 0.02) 40%, transparent 68%);
 }
 
 .hero-layout {
@@ -746,8 +748,7 @@ section {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255, 218, 5, 0.25);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(255, 218, 5, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
   background-color: var(--bg-surface);
   aspect-ratio: 4 / 5;
 }
@@ -974,9 +975,9 @@ section {
 .tour-tag {
   font-family: var(--font-display);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.16em;
-  color: var(--accent);
+  color: var(--yellow-touch);
   margin-bottom: 0.5rem;
 }
 
@@ -1013,10 +1014,10 @@ section {
 
 .ticket-row:hover {
   background-color: var(--bg-surface-hover);
-  border-color: var(--border-accent);
-  border-left-color: var(--accent-light);
+  border-color: var(--border-yellow);
+  border-left-color: var(--yellow-touch);
   transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45), 0 0 24px rgba(255, 218, 5, 0.15);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 218, 5, 0.1);
 }
 
 .ticket-date-col {
@@ -1144,10 +1145,10 @@ section {
 }
 
 .video-thumb-wrap:hover .video-play-btn {
-  background-color: var(--accent);
-  color: #0a0b0e;
+  background-color: var(--yellow-touch);
+  color: #0e1211;
   transform: translate(-50%, -50%) scale(1.12);
-  box-shadow: 0 0 24px rgba(255, 218, 5, 0.65);
+  box-shadow: 0 0 22px var(--yellow-glow);
 }
 
 .video-pill {
@@ -1365,9 +1366,8 @@ section {
   font-size: 3.5rem;
   line-height: 1;
   color: var(--accent);
-  text-shadow: 0 0 24px rgba(255, 218, 5, 0.35);
   margin-bottom: 0.5rem;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .review-text {
@@ -1433,10 +1433,11 @@ section {
 }
 
 .stat-stars {
-  color: #ffda05;
+  color: var(--yellow-touch);
   font-size: 1.05rem;
   letter-spacing: 0.15em;
   line-height: 1;
+  text-shadow: 0 0 10px rgba(255, 218, 5, 0.35);
 }
 
 .stat-info {
@@ -1495,18 +1496,19 @@ section {
 }
 
 .attendee-stars {
-  color: #ffda05;
+  color: var(--yellow-touch);
   font-size: 0.95rem;
   letter-spacing: 0.12em;
+  text-shadow: 0 0 8px rgba(255, 218, 5, 0.3);
 }
 
 .attendee-verified-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: rgba(255, 218, 5, 0.12);
+  background: rgba(255, 218, 5, 0.08);
   border: 1px solid rgba(255, 218, 5, 0.35);
-  color: var(--accent-light);
+  color: var(--yellow-light);
   font-size: 0.72rem;
   font-weight: 600;
   padding: 0.2rem 0.55rem;
@@ -1535,8 +1537,8 @@ section {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 218, 5, 0.25), rgba(255, 218, 5, 0.05));
-  border: 1px solid rgba(255, 218, 5, 0.4);
+  background: linear-gradient(135deg, rgba(123, 165, 110, 0.25), rgba(123, 165, 110, 0.05));
+  border: 1px solid rgba(123, 165, 110, 0.4);
   color: var(--accent-light);
   font-family: var(--font-display);
   font-weight: 800;
@@ -1585,10 +1587,10 @@ section {
 .callout-kicker {
   font-family: var(--font-display);
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--accent);
+  letter-spacing: 0.16em;
+  color: var(--yellow-touch);
   display: block;
   margin-bottom: 0.4rem;
 }
@@ -1742,7 +1744,7 @@ section {
 
 .btn-submit {
   background-color: var(--accent);
-  color: #0a0b0e;
+  color: #0c120e;
   padding: 0.95rem 2rem;
   font-size: 1rem;
   border-radius: 12px;
@@ -1753,7 +1755,7 @@ section {
 .btn-submit:hover {
   background-color: var(--accent-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 218, 5, 0.3);
+  box-shadow: 0 8px 24px rgba(123, 165, 110, 0.3);
 }
 
 .form-feedback {
@@ -1766,7 +1768,7 @@ section {
 
 .form-feedback.success {
   display: block;
-  background-color: rgba(255, 218, 5, 0.15);
+  background-color: rgba(123, 165, 110, 0.15);
   border: 1px solid var(--accent);
   color: var(--text-primary);
 }
@@ -2022,7 +2024,7 @@ section {
     background: rgba(12, 17, 14, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 218, 5, 0.3);
+    border: 1px solid rgba(123, 165, 110, 0.3);
     padding: 0.65rem 0.8rem;
     border-radius: 16px;
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
@@ -2104,4 +2106,23 @@ section {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+}
+
+
+.text-yellow-highlight {
+  color: var(--yellow-touch);
+  position: relative;
+  display: inline-block;
+}
+
+.text-yellow-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--yellow-touch);
+  border-radius: 2px;
+  opacity: 0.8;
 }
