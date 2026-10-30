@@ -12,7 +12,7 @@
   <meta property="og:title" content="Saurabh Zinzuvadiya | Stand-Up Comedian & Writer">
   <meta property="og:description" content="Life is a mess. I just make it funnier. Explore tour tickets, specials, and corporate booking.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:image" content="images/saurabh_stage_front_hq.jpg">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -34,8 +34,15 @@
   <header class="site-header" id="header">
     <div class="nav-container">
       <a href="#home" class="nav-brand" aria-label="Saurabh Zinzuvadiya Home">
-        <span class="brand-title">SAURABH ZINZUVADIYA</span>
-        <span class="brand-subtitle">COMEDIAN &amp; WRITER</span>
+        <!-- Saurabh's Real Avatar Image -->
+        <div class="nav-avatar-wrap">
+          <img src="images/saurabh_stage_front_hq.jpg" alt="Saurabh Zinzuvadiya" class="nav-avatar-img">
+          <span class="nav-status-dot" title="Available for Bookings"></span>
+        </div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">SAURABH ZINZUVADIYA</span>
+          <span class="brand-subtitle">COMEDIAN &amp; WRITER</span>
+        </div>
       </a>
 
       <!-- Desktop Navigation -->
@@ -63,6 +70,15 @@
 
   <!-- Mobile Drawer Overlay -->
   <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-header">
+      <div class="mobile-avatar-block">
+        <img src="images/saurabh_stage_front_hq.jpg" alt="Saurabh Zinzuvadiya" class="mobile-avatar-img">
+        <div>
+          <p class="mobile-avatar-name">Saurabh Zinzuvadiya</p>
+          <p class="mobile-avatar-tag">@funnysaurabh • Live on Tour</p>
+        </div>
+      </div>
+    </div>
     <nav class="mobile-nav">
       <a href="#home" class="mobile-link">Home</a>
       <a href="#shows" class="mobile-link">Shows &amp; Tickets</a>
@@ -84,15 +100,38 @@
 
   <main>
     <!-- ===================================================================
-         2. HERO SECTION (Impactful, Clean, Sapan Verma-Inspired)
+         2. HERO SECTION (Real Stage Photos of Saurabh with Interactive Angle Switcher)
          =================================================================== -->
     <section class="hero-section" id="home">
       <div class="container hero-layout">
-        <!-- Hero Visual (Large Cinematic Portrait) -->
+        
+        <!-- Hero Visual (Authentic Real Saurabh Stage Photograph) -->
         <div class="hero-visual">
           <div class="hero-image-wrap">
-            <img src="images/hero.jpg" alt="Saurabh Zinzuvadiya Stand-Up Comedian" class="hero-img">
+            <img 
+              src="images/saurabh_stage_front_hq.jpg" 
+              alt="Saurabh Zinzuvadiya Live Stage Stand-Up Performance" 
+              class="hero-img" 
+              id="heroStagePhoto"
+            >
             <div class="hero-image-gradient"></div>
+
+            <!-- Authentic Live Tag -->
+            <div class="hero-live-badge">
+              <span class="live-pulse-dot"></span>
+              <span>LIVE ON STAGE • AHMEDABAD AUDITORIUM</span>
+            </div>
+          </div>
+
+          <!-- Minimalist Angle Switcher (Directly switching real Saurabh photos) -->
+          <div class="hero-angle-switcher">
+            <span class="angle-prompt">Stage Angle:</span>
+            <button class="angle-btn active" id="btnAngle1" data-src="images/saurabh_stage_front_hq.jpg">
+              01 • Front Stage Laugh
+            </button>
+            <button class="angle-btn" id="btnAngle2" data-src="images/saurabh_stage_angle2.jpg">
+              02 • 3/4 Cinematic Angle
+            </button>
           </div>
         </div>
 
@@ -147,21 +186,33 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- ===================================================================
-         3. UPCOMING SHOWS / TICKETS (Sapan Verma Style List Units)
+         3. UPCOMING SHOWS / TICKETS (Sapan Verma Style List Units + Tour Artwork)
          =================================================================== -->
     <section class="section-shows" id="shows">
       <div class="container">
-        <div class="section-header">
+        
+        <!-- Tour Banner Header -->
+        <div class="tour-banner-card">
+          <img src="images/tour_artwork.jpg" alt="Saurabh Zinzuvadiya India Tour Artwork" class="tour-banner-img">
+          <div class="tour-banner-overlay">
+            <span class="tour-tag">OFFICIAL 2026 INDIA TOUR</span>
+            <h3 class="tour-headline">The Absurdity Tour • Live in Auditoriums</h3>
+            <p class="tour-subtext">Tickets are now live across major cities. Reserve early for front-row seats.</p>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 3.5rem;">
           <div class="section-title-wrap">
             <span class="section-kicker">Live On Stage</span>
             <h2 class="section-title">Upcoming Shows</h2>
           </div>
           <p class="section-desc">
-            Catch Saurabh live in an auditorium near you. All upcoming tour dates and official ticket links are listed below.
+            Catch Saurabh live in an auditorium near you. All confirmed tour dates and official ticket booking links are listed below.
           </p>
         </div>
 
@@ -379,10 +430,11 @@
     </section>
 
     <!-- ===================================================================
-         5. ABOUT SECTION (Biography, Background, Visual Balance)
+         5. ABOUT SECTION (Real Saurabh Stage Photos & Dual Gallery)
          =================================================================== -->
     <section class="section-about" id="about">
       <div class="container about-layout">
+        
         <!-- Biography Column -->
         <div class="about-text-col">
           <div class="section-title-wrap">
@@ -426,16 +478,30 @@
           </div>
         </div>
 
-        <!-- Portrait Column -->
+        <!-- Real Saurabh Stage Photos Gallery (Dual Angle) -->
         <div class="about-image-col">
+          <!-- Primary Stage Image: 3/4 Cinematic Live Angle -->
           <div class="about-portrait-card">
-            <img src="images/about.jpg" alt="Saurabh Zinzuvadiya Portrait" class="about-portrait-img">
+            <img src="images/saurabh_stage_angle2.jpg" alt="Saurabh Zinzuvadiya Authentic Stage Performance" class="about-portrait-img">
             <div class="portrait-caption">
-              <span class="caption-name">Saurabh Zinzuvadiya</span>
-              <span class="caption-role">Live at The Absurdity Special</span>
+              <div class="caption-left">
+                <span class="caption-name">Saurabh Zinzuvadiya</span>
+                <span class="caption-role">Live Stage Performance • Angle 02</span>
+              </div>
+              <span class="verified-tag">Verified Artist</span>
+            </div>
+          </div>
+
+          <!-- Secondary Stage Thumbnail: Live Front Laugh -->
+          <div class="about-secondary-card">
+            <img src="images/saurabh_stage_front_hq.jpg" alt="Saurabh Zinzuvadiya Laughing with Audience" class="about-sec-img">
+            <div class="sec-card-desc">
+              <p class="sec-card-title">Authentic Crowd Connection</p>
+              <p class="sec-card-sub">Recorded live during 2026 solo special tour.</p>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 

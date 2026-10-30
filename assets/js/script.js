@@ -161,4 +161,24 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 700);
     });
   }
+
+  // 5. Interactive Camera Angle Switcher (Real Stage Photos)
+  const heroStagePhoto = document.getElementById('heroStagePhoto');
+  const angleBtns = document.querySelectorAll('.angle-btn');
+
+  angleBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const newSrc = btn.getAttribute('data-src');
+      if (heroStagePhoto && newSrc) {
+        heroStagePhoto.style.opacity = '0.4';
+        heroStagePhoto.style.transition = 'opacity 0.25s ease';
+        setTimeout(function () {
+          heroStagePhoto.src = newSrc;
+          heroStagePhoto.style.opacity = '1';
+        }, 150);
+      }
+      angleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
 });
