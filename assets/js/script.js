@@ -117,23 +117,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // TABLET & MOBILE (< 992px)
       mm.add('(max-width: 991px)', function () {
-        // Clear desktop inline transforms so responsive CSS takes full control
-        gsap.set([heroMonumentalName, heroProfessionBanner, heroScrollCue, heroTextContent, heroVisual, heroStickyStage], { clearProps: 'all' });
-
-        // Smooth scroll cue fade as user begins scrolling down on mobile
-        const mobileCueTrigger = ScrollTrigger.create({
-          trigger: heroContainer,
-          start: 'top top',
-          end: '180px top',
-          onUpdate: function (self) {
-            if (heroScrollCue) {
-              gsap.to(heroScrollCue, { opacity: Math.max(0, 0.85 - self.progress * 1.5), duration: 0.1 });
-            }
-          }
-        });
+        // Clear desktop inline transforms and ensure immediate full visibility of settled hero
+        gsap.set([heroMonumentalName, heroProfessionBanner, heroScrollCue, heroStickyStage], { clearProps: 'all' });
+        gsap.set([heroTextContent, heroVisual], { opacity: 1, visibility: 'visible', clearProps: 'transform' });
 
         return function () {
-          mobileCueTrigger.kill();
           gsap.set([heroMonumentalName, heroProfessionBanner, heroScrollCue, heroTextContent, heroVisual, heroStickyStage], { clearProps: 'all' });
         };
       });

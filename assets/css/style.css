@@ -2689,21 +2689,13 @@ section {
     overflow: visible;
     display: flex;
     flex-direction: column;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
   }
 
-  /* Full 100vh Initial Cinematic Minimal Screen */
+  /* Remove minimal name reveal screen on mobile/tablet: start directly with profile & content */
   .hero-initial-center {
-    position: relative;
-    min-height: 100vh;
-    min-height: 100dvh;
-    inset: auto;
-    width: 100%;
-    padding: 6.5rem 1.5rem 3.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    pointer-events: auto;
+    display: none !important;
   }
 
   /* Natural-Flowing Settled Content on Mobile/Tablet */
@@ -2711,8 +2703,8 @@ section {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 2.25rem;
-    padding: 2.5rem 1.5rem 5rem 1.5rem;
+    gap: 1.75rem;
+    padding: 1rem 1.5rem 3.5rem 1.5rem;
     text-align: center;
     align-items: center;
   }
@@ -2720,9 +2712,9 @@ section {
   /* Centered Authentic Paper-Cut Portrait */
   .hero-visual {
     order: -1;
-    opacity: 1;
-    transform: none;
-    max-width: clamp(260px, 60vw, 320px);
+    opacity: 1 !important;
+    transform: none !important;
+    max-width: clamp(250px, 58vw, 300px);
     margin: 0 auto;
     width: 100%;
   }
@@ -2738,8 +2730,8 @@ section {
   /* Clean Settled Bio & Details */
   .hero-text-content {
     order: 1;
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
     align-items: center;
     text-align: center;
     width: 100%;
@@ -3089,32 +3081,14 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .hero-initial-center {
-    padding: 5rem 1.25rem 3rem 1.25rem;
-  }
-
-  .intro-name-first,
-  .intro-name-last {
-    font-size: clamp(2.3rem, 11vw, 3.2rem);
-    line-height: 0.95;
-  }
-
-  .hero-profession-banner {
-    gap: 0.85rem;
-    margin-top: 1.25rem;
-  }
-
-  .profession-tagline {
-    font-size: 0.82rem;
-    letter-spacing: 0.22em;
-  }
-
-  .profession-rule {
-    width: 25px;
+  .hero-sticky-stage {
+    padding-top: 4.25rem;
+    padding-bottom: 1.5rem;
   }
 
   .hero-settled-layout {
-    padding: 2rem 1rem 4rem 1rem;
+    padding: 0.75rem 1rem 3rem 1rem;
+    gap: 1.4rem;
   }
 
   .hero-visual {
@@ -3201,10 +3175,6 @@ section {
     font-size: 0.72rem;
   }
 
-  .intro-name-first,
-  .intro-name-last {
-    font-size: 2.1rem;
-  }
 
   .settled-first,
   .settled-last {
