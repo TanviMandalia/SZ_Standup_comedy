@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
     <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#0f1738"/>
-      <stop offset="85%" stop-color="#04040e"/>
-      <stop offset="100%" stop-color="#000005"/>
+      <stop offset="0%" stop-color="#1e3557"/>
+      <stop offset="80%" stop-color="#172A45"/>
+      <stop offset="100%" stop-color="#0c1827"/>
     </radialGradient>
-    <linearGradient id="neonRim" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00d4ff"/>
-      <stop offset="50%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#FF4D6D"/>
+    <linearGradient id="midnightRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0A15A"/>
+      <stop offset="50%" stop-color="#D96B35"/>
+      <stop offset="100%" stop-color="#F0A15A"/>
     </linearGradient>
     <linearGradient id="micHead" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="40%" stop-color="#d4e4f7"/>
-      <stop offset="100%" stop-color="#7285a5"/>
+      <stop offset="50%" stop-color="#F5EBDD"/>
+      <stop offset="100%" stop-color="#d4c7b8"/>
     </linearGradient>
     <linearGradient id="micBase" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00d4ff"/>
-      <stop offset="100%" stop-color="#a855f7"/>
+      <stop offset="0%" stop-color="#D96B35"/>
+      <stop offset="100%" stop-color="#F0A15A"/>
     </linearGradient>
     <filter id="softGlow" x="-25%" y="-25%" width="150%" height="150%">
       <feGaussianBlur stdDeviation="1.5" result="blur"/>
@@ -25,30 +25,30 @@
     </filter>
   </defs>
 
-  <!-- Deep Stage Background Disk -->
-  <circle cx="32" cy="32" r="30" fill="url(#bgGlow)" stroke="url(#neonRim)" stroke-width="2.5" filter="url(#softGlow)"/>
+  <!-- Deep Midnight Navy Stage Background Disk -->
+  <circle cx="32" cy="32" r="30" fill="url(#bgGlow)" stroke="url(#midnightRim)" stroke-width="2.5" filter="url(#softGlow)"/>
 
   <!-- Laugh Sparkles & Comedy Stars -->
-  <path d="M 48 14 Q 50 11 53 12 Q 50 14 51 17 Q 49 14 48 14 Z" fill="#FF4D6D"/>
-  <circle cx="15" cy="18" r="1.5" fill="#00d4ff"/>
-  <circle cx="49" cy="45" r="1.3" fill="#F5C542"/>
+  <path d="M 48 14 Q 50 11 53 12 Q 50 14 51 17 Q 49 14 48 14 Z" fill="#F0A15A"/>
+  <circle cx="15" cy="18" r="1.5" fill="#F5EBDD"/>
+  <circle cx="49" cy="45" r="1.3" fill="#D96B35"/>
 
-  <!-- Stand-Up Microphone: Condenser Capsule -->
+  <!-- Stand-Up Microphone: Condenser Capsule in Ivory -->
   <rect x="25.5" y="13" width="13" height="19" rx="6.5" fill="url(#micHead)"/>
   <!-- Mic Grid Pattern -->
-  <line x1="26" y1="19.5" x2="38" y2="19.5" stroke="#04040e" stroke-width="1.2" opacity="0.45"/>
-  <line x1="26" y1="25.5" x2="38" y2="25.5" stroke="#04040e" stroke-width="1.2" opacity="0.45"/>
-  <line x1="32" y1="13" x2="32" y2="32" stroke="#04040e" stroke-width="1.2" opacity="0.45"/>
+  <line x1="26" y1="19.5" x2="38" y2="19.5" stroke="#172A45" stroke-width="1.2" opacity="0.45"/>
+  <line x1="26" y1="25.5" x2="38" y2="25.5" stroke="#172A45" stroke-width="1.2" opacity="0.45"/>
+  <line x1="32" y1="13" x2="32" y2="32" stroke="#172A45" stroke-width="1.2" opacity="0.45"/>
 
-  <!-- Metallic U-Bracket (Cradle) -->
-  <path d="M 21 23.5 C 21 37.5 43 37.5 43 23.5" fill="none" stroke="url(#neonRim)" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- Metallic U-Bracket in Amber / Burnt Orange -->
+  <path d="M 21 23.5 C 21 37.5 43 37.5 43 23.5" fill="none" stroke="url(#midnightRim)" stroke-width="2.6" stroke-linecap="round"/>
 
   <!-- Mic Stem Shaft -->
-  <line x1="32" y1="35.5" x2="32" y2="46" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+  <line x1="32" y1="35.5" x2="32" y2="46" stroke="#F5EBDD" stroke-width="2.6" stroke-linecap="round"/>
 
   <!-- Circular Base Plate -->
   <ellipse cx="32" cy="47.5" rx="11" ry="3" fill="url(#micBase)"/>
 
-  <!-- Vibrant Comedy Smile Arc -->
-  <path d="M 23 53.5 Q 32 59.5 41 53.5" fill="none" stroke="#FF4D6D" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- Vibrant Comedy Smile Arc in Burnt Orange -->
+  <path d="M 23 53.5 Q 32 59.5 41 53.5" fill="none" stroke="#D96B35" stroke-width="2.4" stroke-linecap="round"/>
 </svg>

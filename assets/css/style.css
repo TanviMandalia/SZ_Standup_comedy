@@ -1,48 +1,81 @@
 /* ===================================================================
    SAURABH ZINZUVADIYA — OFFICIAL STAND-UP COMEDY PORTFOLIO
-   Design Language: Minimal, Clean, Modern, Personal Branding
-   Inspired by: Sapan Verma (sapanverma.in)
+   Design Language: Midnight Show Theme
+   Atmosphere: Cinematic, Stylish, Energetic & Premium Stand-Up Comedy
+   Color Palette:
+     - Midnight Navy: #172A45 (Primary canvas & cinematic base)
+     - Burnt Orange:  #D96B35 (Primary CTAs, important highlights)
+     - Amber:         #F0A15A (Secondary highlights, glow, accents, icons)
+     - Ivory:         #F5EBDD (Headings, primary typography, readable content)
    =================================================================== */
 
 :root {
-  /* Core Color Palette: First Color Theme (Sophisticated Dark Forest & Sage) */
-  --bg-primary: #0e1211;
-  --bg-secondary: #141a16;
-  --bg-surface: #1b221e;
-  --bg-surface-hover: #222c26;
+  /* Core Color Palette: Midnight Show */
+  --bg-primary: #172A45;                 /* Midnight Navy — Primary Background */
+  --bg-secondary: #122137;               /* Deep Midnight Navy for alternating sections */
+  --bg-surface: #1e3557;                 /* Elevated card surface in midnight navy spectrum */
+  --bg-surface-hover: #26436e;           /* Polished interactive hover state */
+  --bg-elevated: #213b60;                /* Floating menus, pills, dialogue surface */
+  --bg-footer: #0c1827;                  /* Deepest cinematic base for footer */
 
-  /* Primary Accent: Signature Minimal Sage / Olive Green */
-  --accent: #7ba56e;
-  --accent-light: #94c285;
-  --accent-dark: #648a58;
-  --accent-subtle: rgba(123, 165, 110, 0.15);
+  /* Primary Accent & CTAs: Burnt Orange */
+  --burnt-orange: #D96B35;
+  --burnt-orange-hover: #e47741;
+  --burnt-orange-glow: rgba(217, 107, 53, 0.38);
+  --burnt-orange-subtle: rgba(217, 107, 53, 0.16);
 
-  /* Special Yellow Touch Accents (Spotlight Gold / Yellow Highlights) */
-  --yellow-touch: #ffda05;
-  --yellow-light: #ffe853;
-  --yellow-glow: rgba(255, 218, 5, 0.4);
-  --yellow-subtle: rgba(255, 218, 5, 0.14);
-  --border-yellow: rgba(255, 218, 5, 0.4);
+  /* Secondary Accent & Highlights: Amber */
+  --amber: #F0A15A;
+  --amber-light: #f7b97e;
+  --amber-glow: rgba(240, 161, 90, 0.45);
+  --amber-subtle: rgba(240, 161, 90, 0.15);
+  --border-amber: rgba(240, 161, 90, 0.38);
 
-  /* Clean Borders */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(123, 165, 110, 0.35);
+  /* Backward Compatibility Theme Aliases */
+  --accent: #D96B35;                     /* Primary CTA: Burnt Orange */
+  --accent-light: #e47741;
+  --accent-dark: #b85422;
+  --accent-subtle: rgba(217, 107, 53, 0.16);
 
-  /* Typography Colors */
-  --text-primary: #ffffff;
-  --text-secondary: #e2e6e3;
-  --text-muted: #95a199;
-  --text-dim: #6b776f;
-  --text-cream: #f6f3eb;
+  --yellow-touch: #F0A15A;               /* Secondary Highlight: Amber */
+  --yellow-light: #f7b97e;
+  --yellow-glow: rgba(240, 161, 90, 0.45);
+  --yellow-subtle: rgba(240, 161, 90, 0.15);
+  --border-yellow: rgba(240, 161, 90, 0.38);
+
+  /* Clean Borders & Rim Lights */
+  --border-subtle: rgba(245, 235, 221, 0.10);
+  --border-accent: rgba(240, 161, 90, 0.35);
+  --border-orange: rgba(217, 107, 53, 0.45);
+
+  /* Typography Colors: Ivory Spectrum */
+  --text-primary: #F5EBDD;               /* Pure Ivory for Headings & Primary Content */
+  --text-secondary: #e6dac9;             /* Warm Ivory for secondary text */
+  --text-muted: #cfc3b5;                 /* Soft warm Ivory with high contrast for descriptions */
+  --text-dim: #a4978b;                   /* Readable dim Ivory for micro labels and dates */
+  --text-cream: #F5EBDD;
 
   /* Fonts */
   --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Spacing & Transitions */
-  --transition-fast: 0.2s ease;
-  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Torn Paper / Deckle Edge Clip Paths (Cinematic Paper-Cut Mask) */
+  --torn-paper-clip: polygon(
+    0% 2.8%, 3.5% 1.2%, 7.5% 2.8%, 12.5% 1.4%, 18% 3.2%, 24% 1.5%, 30.5% 2.9%, 37% 1.1%,
+    43.5% 2.8%, 50% 1.5%, 56.5% 3.2%, 63% 1.6%, 70% 3%, 77% 1.2%, 84% 2.9%, 91% 1.4%, 96.5% 3%, 100% 1.8%,
+    98.4% 14%, 99.8% 26%, 98.2% 38%, 99.6% 51%, 98.3% 64%, 99.7% 77%, 98.1% 89%, 100% 98.2%,
+    96% 99.2%, 89% 97.6%, 82.5% 99.5%, 75.5% 97.8%, 69% 99.4%, 61.5% 97.7%, 54.5% 99.5%,
+    47% 97.9%, 40% 99.3%, 32.5% 97.6%, 25.5% 99.1%, 18.5% 97.7%, 11.5% 99.4%, 4% 97.8%, 0% 99.2%,
+    1.8% 87%, 0.3% 74%, 1.7% 61%, 0.2% 48%, 1.8% 35%, 0.4% 22%, 1.8% 10%
+  );
+  --torn-paper-backing: polygon(
+    0% 3.2%, 5.5% 1.5%, 11.5% 3.4%, 18% 1.7%, 24.5% 3.6%, 31% 1.8%, 37.5% 3.3%, 44% 1.6%,
+    50.5% 3.7%, 57.5% 1.9%, 64% 3.5%, 71.5% 1.7%, 78.5% 3.4%, 86% 1.7%, 93% 3.3%, 100% 2.2%,
+    98% 15%, 99.6% 28%, 98% 42%, 99.7% 56%, 98.1% 70%, 99.6% 84%, 98% 97%,
+    95.5% 98.8%, 88% 97.2%, 81.5% 99.2%, 74.5% 97.4%, 67.5% 99.1%, 60% 97.5%, 53% 99.3%,
+    45.5% 97.6%, 38% 99.1%, 30.5% 97.4%, 23% 99.2%, 15.5% 97.5%, 8.5% 99.3%, 0% 98%,
+    1.6% 85%, 0.3% 71%, 1.6% 57%, 0.4% 43%, 1.7% 29%, 0.3% 15%
+  );
 }
 
 /* ===================================================================
@@ -68,6 +101,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0f1c2e;
+}
+::-webkit-scrollbar-thumb {
+  background: #233e63;
+  border-radius: 5px;
+  border: 2px solid #0f1c2e;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burnt-orange);
+}
+
+::selection {
+  background: var(--burnt-orange);
+  color: #ffffff;
 }
 
 img {
@@ -128,13 +182,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--accent);
+  color: var(--amber);
 }
 
 .section-title {
   font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.03em;
+  color: var(--text-primary);
 }
 
 .section-desc {
@@ -162,7 +217,7 @@ section {
   border-radius: 9999px;
   font-family: var(--font-display);
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-smooth);
   border: 1px solid transparent;
@@ -170,49 +225,54 @@ section {
 }
 
 .btn-primary {
-  background-color: var(--accent);
-  color: #0c120e;
-  border-color: var(--accent);
+  background-color: var(--burnt-orange);
+  color: #ffffff;
+  border-color: var(--burnt-orange);
+  box-shadow: 0 4px 14px var(--burnt-orange-glow);
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-light);
-  border-color: var(--accent-light);
+  background-color: var(--burnt-orange-hover);
+  border-color: var(--burnt-orange-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(123, 165, 110, 0.28);
+  box-shadow: 0 8px 24px var(--burnt-orange-glow);
+  color: #ffffff;
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: rgba(245, 235, 221, 0.05);
   color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(245, 235, 221, 0.22);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-surface);
-  border-color: var(--accent);
-  color: var(--accent);
+  background-color: rgba(240, 161, 90, 0.12);
+  border-color: var(--amber);
+  color: var(--amber);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 161, 90, 0.2);
 }
 
 .btn-ticket {
-  background-color: var(--accent);
-  color: #0c120e;
+  background-color: var(--burnt-orange);
+  color: #ffffff;
   padding: 0.65rem 1.45rem;
   font-size: 0.9rem;
+  box-shadow: 0 4px 14px var(--burnt-orange-glow);
 }
 
 .btn-ticket:hover {
-  background-color: var(--accent-light);
+  background-color: var(--burnt-orange-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(123, 165, 110, 0.3);
+  box-shadow: 0 6px 20px var(--burnt-orange-glow);
+  color: #ffffff;
 }
 
 .btn-link {
   font-family: var(--font-display);
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--amber);
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -220,7 +280,7 @@ section {
 }
 
 .btn-link:hover {
-  color: var(--accent-light);
+  color: var(--amber-light);
   gap: 0.65rem;
 }
 
@@ -228,15 +288,18 @@ section {
   background: transparent;
   border: none;
   padding: 0;
-  color: var(--accent);
+  color: var(--amber);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: color var(--transition-fast);
 }
 
 .btn-text-cta:hover {
-  color: var(--accent-light);
+  color: var(--amber-light);
 }
 
 /* ===================================================================
@@ -247,12 +310,12 @@ section {
   top: 0;
   left: 0;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(14, 18, 17, 0.92) 0%, rgba(14, 18, 17, 0.6) 80%, transparent 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(to bottom, rgba(23, 42, 69, 0.96) 0%, rgba(23, 42, 69, 0.72) 80%, transparent 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   z-index: 900;
   padding: 1.25rem 0;
-  pointer-events: none; /* Allows clicks through except on interactive children */
+  pointer-events: none;
 }
 
 .nav-container-minimal {
@@ -285,7 +348,8 @@ section {
   border-radius: 50%;
   object-fit: cover;
   object-position: center 10%;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--amber);
+  box-shadow: 0 0 12px rgba(240, 161, 90, 0.35);
 }
 
 .nav-status-dot {
@@ -316,7 +380,7 @@ section {
 .brand-subtitle {
   font-size: 0.68rem;
   letter-spacing: 0.16em;
-  color: var(--accent);
+  color: var(--amber);
   font-weight: 600;
   margin-top: -2px;
 }
@@ -333,7 +397,7 @@ section {
   gap: 0.45rem;
   padding: 0.45rem 0.95rem;
   border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(245, 235, 221, 0.06);
   border: 1px solid var(--border-subtle);
   font-size: 0.82rem;
   font-weight: 600;
@@ -342,9 +406,10 @@ section {
 }
 
 .header-social-pill:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background-color: var(--accent-subtle);
+  border-color: var(--amber);
+  color: var(--amber);
+  background-color: var(--amber-subtle);
+  transform: translateY(-1px);
 }
 
 .btn-header-book {
@@ -353,7 +418,7 @@ section {
 }
 
 /* ===================================================================
-   5. CREATIVE COMPACT KINETIC SIDEBAR DOCK (Sapan Verma Minimalist Style)
+   5. CREATIVE COMPACT KINETIC SIDEBAR DOCK (Midnight Show Style)
    =================================================================== */
 .sidebar-nav-dock {
   position: fixed;
@@ -389,19 +454,19 @@ section {
   align-items: center;
   gap: 0.35rem;
   padding: 0.2rem 0.55rem;
-  background: rgba(12, 17, 14, 0.78);
+  background: rgba(18, 33, 55, 0.86);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(123, 165, 110, 0.25);
+  border: 1px solid rgba(240, 161, 90, 0.3);
   border-radius: 9999px;
-  color: #a3b8aa;
+  color: var(--text-muted);
   font-family: var(--font-display);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: lowercase;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(10, 20, 35, 0.35);
   text-decoration: none;
 }
 
@@ -414,11 +479,11 @@ section {
 }
 
 .dock-util-btn:hover {
-  background: rgba(18, 25, 20, 0.95);
-  border-color: var(--accent);
-  color: #ffffff;
+  background: rgba(30, 53, 87, 0.96);
+  border-color: var(--amber);
+  color: var(--text-primary);
   transform: translateX(-3px);
-  box-shadow: 0 4px 16px rgba(123, 165, 110, 0.25);
+  box-shadow: 0 4px 16px rgba(240, 161, 90, 0.25);
 }
 
 /* 5.2 Vertical Elevator Track & Menu */
@@ -440,8 +505,8 @@ section {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(123, 165, 110, 0.22) 15%,
-    rgba(123, 165, 110, 0.22) 85%,
+    rgba(240, 161, 90, 0.28) 15%,
+    rgba(240, 161, 90, 0.28) 85%,
     transparent 100%
   );
   pointer-events: none;
@@ -485,7 +550,7 @@ section {
   font-weight: 500;
   text-transform: lowercase;
   letter-spacing: 0.12em;
-  color: #728277;
+  color: var(--text-dim);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
   display: inline-block;
@@ -501,18 +566,17 @@ section {
   flex-shrink: 0;
 }
 
-/* Sapan Verma signature micro-circle */
 .indicator-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  border: 1.5px solid rgba(123, 165, 110, 0.45);
-  background: rgba(14, 20, 16, 0.8);
+  border: 1.5px solid rgba(240, 161, 90, 0.45);
+  background: rgba(18, 33, 55, 0.85);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ===================================================================
-   SAPAN VERMA KINETIC SCROLL STATES
+   KINETIC SCROLL STATES
    1. .expanded-sec -> currently active section
    2. .shrinked-sec -> section already passed/scrolled past
    =================================================================== */
@@ -524,44 +588,44 @@ section {
 }
 
 .dock-item.expanded-sec .dock-link {
-  background: rgba(12, 18, 14, 0.94);
+  background: rgba(18, 33, 55, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(123, 165, 110, 0.55);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45),
-              0 0 14px rgba(123, 165, 110, 0.22);
+  border: 1px solid rgba(240, 161, 90, 0.55);
+  box-shadow: 0 4px 18px rgba(10, 20, 35, 0.5),
+              0 0 14px rgba(240, 161, 90, 0.25);
   transform: translateX(-2px);
   padding: 0.2rem 0.45rem 0.2rem 0.72rem;
 }
 
 .dock-item.expanded-sec .dock-text {
-  color: #ffffff;
+  color: var(--text-primary);
   font-weight: 700;
   opacity: 1;
   letter-spacing: 0.13em;
 }
 
 .dock-item.expanded-sec .indicator-dot {
-  background: var(--yellow-touch);
+  background: var(--amber);
   border-color: #ffffff;
-  box-shadow: 0 0 10px var(--yellow-touch);
+  box-shadow: 0 0 10px var(--amber);
   transform: scale(1.18);
   animation: dockDotPulse 2.4s infinite;
 }
 
 @keyframes dockDotPulse {
   0%, 100% {
-    box-shadow: 0 0 6px var(--yellow-touch);
+    box-shadow: 0 0 6px var(--amber);
   }
   50% {
-    box-shadow: 0 0 14px var(--yellow-touch), 0 0 4px #ffffff;
+    box-shadow: 0 0 14px var(--amber), 0 0 4px #ffffff;
   }
 }
 
 /* 2. Passed Section (Moved up & to the right, label condensed to sleek micro-dot) */
 .dock-item.shrinked-sec {
   transform: translate(6px, -2px);
-  opacity: 0.38;
+  opacity: 0.4;
 }
 
 .dock-item.shrinked-sec .dock-link {
@@ -583,27 +647,26 @@ section {
 .dock-item.shrinked-sec .indicator-dot {
   width: 5px;
   height: 5px;
-  background: rgba(123, 165, 110, 0.35);
+  background: rgba(240, 161, 90, 0.35);
   border-color: transparent;
 }
 
-/* 3. Creative Hover Interaction on Dock:
-   When user hovers anywhere on the dock rail, passed & upcoming items softly expand! */
+/* 3. Hover Interaction on Dock Rail */
 .sidebar-nav-dock:hover .dock-item.shrinked-sec {
   transform: translate(0, 0);
-  opacity: 0.85;
+  opacity: 0.88;
 }
 
 .sidebar-nav-dock:hover .dock-item.shrinked-sec .dock-link {
-  background: rgba(14, 20, 16, 0.75);
+  background: rgba(18, 33, 55, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-color: rgba(123, 165, 110, 0.2);
+  border-color: rgba(240, 161, 90, 0.25);
   padding: 0.16rem 0.3rem 0.16rem 0.6rem;
 }
 
 .sidebar-nav-dock:hover .dock-item.shrinked-sec .dock-text {
-  opacity: 0.85;
+  opacity: 0.88;
   max-width: 120px;
   transform: translateX(0);
 }
@@ -611,26 +674,26 @@ section {
 .sidebar-nav-dock:hover .dock-item.shrinked-sec .indicator-dot {
   width: 6px;
   height: 6px;
-  background: rgba(14, 20, 16, 0.8);
-  border: 1px solid rgba(123, 165, 110, 0.45);
+  background: rgba(18, 33, 55, 0.85);
+  border: 1px solid rgba(240, 161, 90, 0.45);
 }
 
 /* Individual Item Hover */
 .dock-link:hover {
-  background: rgba(20, 28, 22, 0.95);
-  border-color: rgba(123, 165, 110, 0.45);
+  background: rgba(30, 53, 87, 0.95);
+  border-color: rgba(240, 161, 90, 0.5);
   transform: translateX(-4px);
 }
 
 .dock-link:hover .dock-text {
-  color: var(--accent-light);
+  color: var(--amber);
   opacity: 1;
 }
 
 .dock-link:hover .indicator-dot {
-  background: var(--yellow-touch);
-  border-color: var(--yellow-touch);
-  box-shadow: 0 0 8px var(--yellow-touch);
+  background: var(--amber);
+  border-color: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
 }
 
 /* 5.3 Discrete Back to Top Button */
@@ -654,27 +717,27 @@ section {
   gap: 0.35rem;
   padding: 0.2rem 0.55rem;
   border-radius: 9999px;
-  background: rgba(12, 17, 14, 0.75);
+  background: rgba(18, 33, 55, 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(123, 165, 110, 0.22);
-  color: #8c9e92;
+  border: 1px solid rgba(240, 161, 90, 0.25);
+  color: var(--text-muted);
   font-family: var(--font-display);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: lowercase;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(10, 20, 35, 0.3);
   text-decoration: none;
 }
 
 .back-top-btn:hover {
-  background: rgba(18, 25, 20, 0.95);
-  border-color: var(--accent);
-  color: #ffffff;
+  background: rgba(30, 53, 87, 0.95);
+  border-color: var(--amber);
+  color: var(--text-primary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(123, 165, 110, 0.25);
+  box-shadow: 0 4px 16px rgba(240, 161, 90, 0.25);
 }
 
 .back-top-arrow {
@@ -691,17 +754,17 @@ section {
   align-items: center;
   gap: 0.45rem;
   padding: 0.35rem 0.75rem;
-  background: rgba(12, 18, 14, 0.92);
+  background: rgba(18, 33, 55, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(123, 165, 110, 0.4);
+  border: 1px solid rgba(240, 161, 90, 0.45);
   border-radius: 9999px;
-  color: #ffffff;
+  color: var(--text-primary);
   font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(10, 20, 35, 0.6);
   cursor: pointer;
   pointer-events: auto;
   transition: all 0.25s ease;
@@ -711,8 +774,8 @@ section {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--yellow-touch);
-  box-shadow: 0 0 6px var(--yellow-touch);
+  background: var(--amber);
+  box-shadow: 0 0 6px var(--amber);
 }
 
 .trigger-chevron {
@@ -724,120 +787,200 @@ section {
 }
 
 /* ===================================================================
-   6. HERO SECTION
+   6. CINEMATIC HERO SECTION (SCROLL-DRIVEN NAME REVEAL & PAPER-CUT PORTRAIT)
+   Inspired by Sapan Verma (sapanverma.in)
    =================================================================== */
-.hero-section {
-  padding-top: 7rem;
-  padding-bottom: 5.5rem;
+.hero-scroll-container {
+  min-height: 220vh;
   position: relative;
-  background: radial-gradient(ellipse at 50% -10%, rgba(255, 218, 5, 0.09) 0%, rgba(255, 218, 5, 0.02) 40%, transparent 68%);
+  background-color: var(--bg-primary);
+  overflow: visible;
 }
 
-.hero-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 4.5rem;
-  align-items: center;
-}
-
-.hero-visual {
-  position: relative;
-}
-
-.hero-image-wrap {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
-  background-color: var(--bg-surface);
-  aspect-ratio: 4 / 5;
-}
-
-.hero-img {
+.hero-sticky-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
-  filter: contrast(1.05) brightness(0.96);
-  transition: opacity 0.3s ease;
-}
-
-.hero-image-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(14, 18, 17, 0.85) 0%, transparent 40%);
-}
-
-.hero-live-badge {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.9rem;
-  background-color: rgba(14, 18, 17, 0.85);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-accent);
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--accent-light);
-  z-index: 5;
-}
-
-.live-pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background-color: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
-}
-
-.hero-angle-switcher {
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 1.25rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  background-color: var(--bg-primary);
+  z-index: 10;
 }
 
-.angle-prompt {
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-dim);
-  font-weight: 600;
+/* Ambient Stage Spotlight Atmosphere */
+.hero-stage-spotlight {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 72% 48%, rgba(240, 161, 90, 0.16) 0%, rgba(217, 107, 53, 0.08) 32%, transparent 70%),
+    radial-gradient(circle at 25% 65%, rgba(18, 33, 55, 0.8) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
 }
 
-.angle-btn {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
+/* 6.1 Initial Minimal Center Screen (Comedian Name & Profession on Load) */
+.hero-initial-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 20;
+  pointer-events: none;
+  padding: 2rem;
+  will-change: opacity, transform;
+}
+
+.hero-monumental-name-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+  pointer-events: auto;
+}
+
+.hero-monumental-name {
   font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0.45rem 1rem;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-
-.angle-btn:hover {
-  border-color: var(--accent);
+  font-weight: 900;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
+  text-transform: uppercase;
+  line-height: 0.94;
+  text-align: center;
+  margin: 0;
 }
 
-.angle-btn.active {
-  background-color: var(--accent-subtle);
-  border-color: var(--accent);
-  color: var(--accent-light);
+.intro-name-first {
+  display: block;
+  font-size: clamp(3.2rem, 7.8vw, 6.8rem);
+  color: var(--text-primary);
+  text-shadow: 0 10px 40px rgba(10, 20, 35, 0.8);
+}
+
+.intro-name-last {
+  display: block;
+  font-size: clamp(3.2rem, 7.8vw, 6.8rem);
+  color: var(--burnt-orange);
+  background: linear-gradient(135deg, var(--burnt-orange) 10%, var(--amber) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 10px 30px rgba(217, 107, 53, 0.35));
+}
+
+.hero-profession-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.6rem;
+  will-change: opacity, transform;
+}
+
+.profession-rule {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--amber));
+}
+
+.profession-rule:last-child {
+  background: linear-gradient(90deg, var(--amber), transparent);
+}
+
+.profession-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Scroll Invitation Cue */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+  will-change: opacity, transform;
+}
+
+.cue-mouse {
+  width: 22px;
+  height: 36px;
+  border: 2px solid rgba(240, 161, 90, 0.6);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.cue-wheel {
+  width: 3px;
+  height: 7px;
+  background-color: var(--amber);
+  border-radius: 2px;
+  animation: cueWheelBounce 1.8s infinite;
+}
+
+@keyframes cueWheelBounce {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(8px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cue-text {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  color: var(--amber);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* 6.2 Settled Dual-Column Layout (Revealed on Scroll) */
+.hero-settled-layout {
+  position: relative;
+  z-index: 15;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.12fr 0.95fr;
+  gap: 4rem;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.hero-settled-name {
+  display: none;
 }
 
 .hero-text-content {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(35px);
+  will-change: opacity, transform;
 }
 
 .hero-badge {
@@ -846,9 +989,9 @@ section {
   gap: 0.6rem;
   padding: 0.4rem 1rem;
   border-radius: 9999px;
-  background-color: var(--accent-subtle);
+  background-color: rgba(240, 161, 90, 0.12);
   border: 1px solid var(--border-accent);
-  color: var(--accent-light);
+  color: var(--amber);
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -860,33 +1003,22 @@ section {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: var(--accent);
-}
-
-.hero-name {
-  font-size: clamp(2.8rem, 5.5vw, 4.4rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  color: var(--text-primary);
-  margin-bottom: 1.25rem;
-}
-
-.hero-surname {
-  color: var(--accent);
+  background-color: var(--burnt-orange);
+  box-shadow: 0 0 6px var(--burnt-orange-glow);
 }
 
 .hero-tagline {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 1.1rem;
   letter-spacing: -0.01em;
+  line-height: 1.35;
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   color: var(--text-muted);
   line-height: 1.7;
   max-width: 540px;
@@ -897,7 +1029,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 1.15rem;
-  margin-bottom: 3.25rem;
+  margin-bottom: 2.75rem;
 }
 
 .hero-stats-strip {
@@ -934,8 +1066,194 @@ section {
   background-color: var(--border-subtle);
 }
 
+/* 6.3 Paper-Cut Portrait Reveal (Layered Torn Paper with Real Photo) */
+.hero-visual {
+  position: relative;
+  opacity: 0;
+  transform: translateX(60px) scale(0.92);
+  will-change: opacity, transform;
+}
+
+.paper-cut-container {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  filter: drop-shadow(0 25px 50px rgba(10, 20, 35, 0.85));
+}
+
+.paper-layer {
+  position: absolute;
+  inset: 0;
+}
+
+/* Layer 1: Ambient Drop Shadow Layer */
+.paper-layer-shadow {
+  position: absolute;
+  inset: -12px;
+  background: rgba(10, 20, 35, 0.7);
+  filter: blur(24px);
+  transform: translate(14px, 22px);
+  z-index: 1;
+  border-radius: 18px;
+}
+
+/* Layer 2: Amber Trim Paper Rim with Deckle Edges */
+.paper-layer-amber {
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(135deg, var(--amber) 0%, var(--burnt-orange) 100%);
+  clip-path: var(--torn-paper-backing);
+  transform: rotate(2deg) scale(1.02);
+  z-index: 2;
+  opacity: 0.95;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.45));
+  will-change: transform;
+}
+
+/* Layer 3: Ivory Deckle Edge Paper Backing */
+.paper-layer-ivory {
+  position: absolute;
+  inset: -2px;
+  background: var(--text-primary);
+  clip-path: var(--torn-paper-backing);
+  transform: rotate(-1.5deg) scale(1.01);
+  z-index: 3;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  will-change: transform;
+}
+
+/* Layer 4: Main Torn Paper Mask with Authentic Portrait */
+.paper-layer-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  clip-path: var(--torn-paper-clip);
+  z-index: 4;
+  overflow: hidden;
+  background: #0f1c2e;
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.6);
+}
+
+.paper-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  filter: contrast(1.06) brightness(0.98);
+  transform: scale(1.02);
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.paper-grain-texture {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(245, 235, 221, 0.08) 1px, transparent 0);
+  background-size: 3px 3px;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  z-index: 5;
+}
+
+.paper-cut-gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(to top, rgba(23, 42, 69, 0.85) 0%, rgba(23, 42, 69, 0) 45%),
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(18, 33, 55, 0.4) 100%);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.hero-live-badge {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1rem;
+  background-color: rgba(18, 33, 55, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(240, 161, 90, 0.45);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #F5EBDD;
+  z-index: 10;
+  box-shadow: 0 4px 14px rgba(10, 20, 35, 0.6);
+}
+
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  flex-shrink: 0;
+}
+
+/* Stage Angle Switcher (Set into the Ivory Paper Deckle Card) */
+.hero-angle-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1.25rem 1.55rem 1.25rem;
+  margin: 0;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+}
+
+.angle-prompt {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #172A45;
+  font-weight: 800;
+}
+
+.angle-btn {
+  background-color: #172A45;
+  border: 1.5px solid rgba(23, 42, 69, 0.4);
+  color: #F5EBDD;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.45rem 1.05rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(10, 20, 35, 0.25);
+}
+
+.angle-btn:hover {
+  background-color: #203a5e;
+  border-color: var(--amber);
+  color: var(--amber);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(10, 20, 35, 0.35);
+}
+
+.angle-btn.active {
+  background-color: var(--burnt-orange);
+  border-color: #b85422;
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(217, 107, 53, 0.45);
+}
+
 /* ===================================================================
-   7. UPCOMING SHOWS (Sapan Verma Style List Units + Tour Artwork)
+   7. UPCOMING SHOWS (Sleek List Units + Tour Artwork)
    =================================================================== */
 .section-shows {
   background-color: var(--bg-secondary);
@@ -951,7 +1269,7 @@ section {
   aspect-ratio: 16 / 7;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 20px 50px rgba(10, 20, 35, 0.6);
 }
 
 .tour-banner-img {
@@ -959,7 +1277,7 @@ section {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  filter: brightness(0.65) contrast(1.1);
+  filter: brightness(0.68) contrast(1.1);
 }
 
 .tour-banner-overlay {
@@ -969,7 +1287,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: linear-gradient(to top, rgba(14, 18, 17, 0.95) 0%, rgba(14, 18, 17, 0.4) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(23, 42, 69, 0.98) 0%, rgba(23, 42, 69, 0.5) 60%, transparent 100%);
 }
 
 .tour-tag {
@@ -977,14 +1295,14 @@ section {
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.16em;
-  color: var(--yellow-touch);
+  color: var(--amber);
   margin-bottom: 0.5rem;
 }
 
 .tour-headline {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 0.4rem;
 }
 
@@ -1007,17 +1325,17 @@ section {
   padding: 1.75rem 2.25rem;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
-  border-left: 3.5px solid var(--accent);
+  border-left: 4px solid var(--burnt-orange);
   border-radius: 16px;
   transition: all var(--transition-smooth);
 }
 
 .ticket-row:hover {
   background-color: var(--bg-surface-hover);
-  border-color: var(--border-yellow);
-  border-left-color: var(--yellow-touch);
+  border-color: rgba(240, 161, 90, 0.45);
+  border-left-color: var(--amber);
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 218, 5, 0.1);
+  box-shadow: 0 14px 32px rgba(10, 20, 35, 0.5), 0 0 20px rgba(240, 161, 90, 0.16);
 }
 
 .ticket-date-col {
@@ -1035,7 +1353,7 @@ section {
 
 .ticket-time {
   font-size: 0.88rem;
-  color: var(--accent);
+  color: var(--amber);
   font-weight: 600;
   margin-top: 0.25rem;
 }
@@ -1105,7 +1423,7 @@ section {
 .video-card:hover {
   border-color: var(--border-accent);
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 36px rgba(10, 20, 35, 0.55);
 }
 
 .video-thumb-wrap {
@@ -1135,33 +1453,34 @@ section {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background-color: rgba(14, 18, 17, 0.85);
-  color: var(--accent);
+  background-color: rgba(23, 42, 69, 0.88);
+  color: var(--amber);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--amber);
   transition: all var(--transition-fast);
 }
 
 .video-thumb-wrap:hover .video-play-btn {
-  background-color: var(--yellow-touch);
-  color: #0e1211;
+  background-color: var(--amber);
+  color: #172A45;
   transform: translate(-50%, -50%) scale(1.12);
-  box-shadow: 0 0 22px var(--yellow-glow);
+  box-shadow: 0 0 22px rgba(240, 161, 90, 0.55);
 }
 
 .video-pill {
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #ffffff;
+  background-color: rgba(12, 24, 39, 0.88);
+  color: var(--text-primary);
   font-size: 0.72rem;
   font-weight: 700;
   padding: 0.25rem 0.6rem;
   border-radius: 4px;
   letter-spacing: 0.04em;
+  border: 1px solid rgba(245, 235, 221, 0.12);
 }
 
 .video-meta {
@@ -1176,7 +1495,7 @@ section {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent);
+  color: var(--amber);
   margin-bottom: 0.6rem;
 }
 
@@ -1184,6 +1503,7 @@ section {
   font-size: 1.15rem;
   font-weight: 700;
   line-height: 1.35;
+  color: var(--text-primary);
   margin-bottom: 0.65rem;
 }
 
@@ -1196,7 +1516,7 @@ section {
 }
 
 /* ===================================================================
-   9. ABOUT SECTION (Two Columns with Bio & Real Stage Portraits)
+   9. ABOUT SECTION (Two Columns with Bio & Stage Portraits)
    =================================================================== */
 .section-about {
   background-color: var(--bg-secondary);
@@ -1216,6 +1536,12 @@ section {
   color: var(--text-primary);
   line-height: 1.65;
   margin-bottom: 1.25rem;
+}
+
+.lead-bio strong,
+.bio-paragraphs strong {
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .bio-paragraphs p {
@@ -1261,6 +1587,7 @@ section {
   overflow: hidden;
   background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
+  box-shadow: 0 20px 48px rgba(10, 20, 35, 0.5);
 }
 
 .about-portrait-img {
@@ -1276,6 +1603,7 @@ section {
   align-items: center;
   justify-content: space-between;
   background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .caption-name {
@@ -1287,14 +1615,15 @@ section {
 
 .caption-role {
   font-size: 0.82rem;
-  color: var(--accent);
+  color: var(--amber);
 }
 
 .verified-tag {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--accent);
-  background-color: var(--accent-subtle);
+  color: var(--amber);
+  background-color: rgba(240, 161, 90, 0.12);
+  border: 1px solid rgba(240, 161, 90, 0.28);
   padding: 0.2rem 0.6rem;
   border-radius: 6px;
   letter-spacing: 0.04em;
@@ -1359,15 +1688,16 @@ section {
 .review-unit:hover {
   border-color: var(--border-accent);
   transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(10, 20, 35, 0.45);
 }
 
 .review-quote-mark {
   font-family: var(--font-display);
   font-size: 3.5rem;
   line-height: 1;
-  color: var(--accent);
+  color: var(--amber);
   margin-bottom: 0.5rem;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .review-text {
@@ -1394,11 +1724,48 @@ section {
 
 .review-label {
   font-size: 0.82rem;
-  color: var(--accent);
+  color: var(--amber);
+}
+
+.section-action-link {
+  display: flex;
+  align-items: center;
+}
+
+.btn-google-reviews {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1.45rem;
+  border-radius: 9999px;
+  background: rgba(240, 161, 90, 0.1);
+  border: 1px solid var(--amber);
+  color: var(--amber);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+.btn-google-reviews svg {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.btn-google-reviews:hover {
+  background: var(--amber);
+  color: #172A45;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(240, 161, 90, 0.35);
+}
+
+.btn-google-reviews:hover svg:last-child {
+  transform: translate(2px, -2px);
 }
 
 /* ===================================================================
-   11. AUDIENCE REVIEWS & ATTENDEE EXPERIENCES (Verified Show Reviews)
+   11. AUDIENCE REVIEWS & ATTENDEE EXPERIENCES
    =================================================================== */
 .section-audience {
   background-color: var(--bg-secondary);
@@ -1433,11 +1800,11 @@ section {
 }
 
 .stat-stars {
-  color: var(--yellow-touch);
+  color: var(--amber);
   font-size: 1.05rem;
   letter-spacing: 0.15em;
   line-height: 1;
-  text-shadow: 0 0 10px rgba(255, 218, 5, 0.35);
+  text-shadow: 0 0 10px rgba(240, 161, 90, 0.45);
 }
 
 .stat-info {
@@ -1484,7 +1851,7 @@ section {
 .attendee-card:hover {
   border-color: var(--border-accent);
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 32px rgba(10, 20, 35, 0.5);
   background: var(--bg-surface-hover);
 }
 
@@ -1496,19 +1863,19 @@ section {
 }
 
 .attendee-stars {
-  color: var(--yellow-touch);
+  color: var(--amber);
   font-size: 0.95rem;
   letter-spacing: 0.12em;
-  text-shadow: 0 0 8px rgba(255, 218, 5, 0.3);
+  text-shadow: 0 0 8px rgba(240, 161, 90, 0.35);
 }
 
 .attendee-verified-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  background: rgba(255, 218, 5, 0.08);
-  border: 1px solid rgba(255, 218, 5, 0.35);
-  color: var(--yellow-light);
+  background: rgba(240, 161, 90, 0.1);
+  border: 1px solid rgba(240, 161, 90, 0.35);
+  color: var(--amber-light);
   font-size: 0.72rem;
   font-weight: 600;
   padding: 0.2rem 0.55rem;
@@ -1537,9 +1904,9 @@ section {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(123, 165, 110, 0.25), rgba(123, 165, 110, 0.05));
-  border: 1px solid rgba(123, 165, 110, 0.4);
-  color: var(--accent-light);
+  background: linear-gradient(135deg, rgba(217, 107, 53, 0.28), rgba(240, 161, 90, 0.12));
+  border: 1px solid rgba(240, 161, 90, 0.4);
+  color: var(--amber);
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 0.85rem;
@@ -1574,8 +1941,8 @@ section {
 
 /* Post-Show Callout Card */
 .post-show-callout {
-  background: linear-gradient(135deg, rgba(20, 28, 22, 0.95), rgba(12, 17, 14, 0.95));
-  border: 1px dashed rgba(255, 218, 5, 0.45);
+  background: linear-gradient(135deg, rgba(30, 53, 87, 0.95), rgba(18, 33, 55, 0.95));
+  border: 1px dashed rgba(240, 161, 90, 0.45);
   border-radius: 20px;
   padding: 2.5rem 3rem;
   display: flex;
@@ -1590,7 +1957,7 @@ section {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--yellow-touch);
+  color: var(--amber);
   display: block;
   margin-bottom: 0.4rem;
 }
@@ -1598,7 +1965,7 @@ section {
 .callout-title {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -1610,9 +1977,13 @@ section {
 }
 
 .callout-desc a {
-  color: var(--accent-light);
+  color: var(--amber);
   text-decoration: underline;
   font-weight: 600;
+}
+
+.callout-desc a:hover {
+  color: var(--amber-light);
 }
 
 .callout-actions {
@@ -1670,11 +2041,11 @@ section {
   font-family: var(--font-display);
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--amber);
 }
 
 .meta-link:hover {
-  color: var(--accent-light);
+  color: var(--amber-light);
 }
 
 .meta-val {
@@ -1692,6 +2063,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+  box-shadow: 0 16px 40px rgba(10, 20, 35, 0.4);
 }
 
 .form-row {
@@ -1729,8 +2101,8 @@ section {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-subtle);
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(240, 161, 90, 0.22);
 }
 
 .form-group select {
@@ -1743,19 +2115,21 @@ section {
 }
 
 .btn-submit {
-  background-color: var(--accent);
-  color: #0c120e;
+  background-color: var(--burnt-orange);
+  color: #ffffff;
   padding: 0.95rem 2rem;
   font-size: 1rem;
   border-radius: 12px;
   font-weight: 700;
   margin-top: 0.6rem;
+  box-shadow: 0 6px 20px var(--burnt-orange-glow);
 }
 
 .btn-submit:hover {
-  background-color: var(--accent-light);
+  background-color: var(--burnt-orange-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(123, 165, 110, 0.3);
+  box-shadow: 0 8px 24px var(--burnt-orange-glow);
+  color: #ffffff;
 }
 
 .form-feedback {
@@ -1768,16 +2142,263 @@ section {
 
 .form-feedback.success {
   display: block;
-  background-color: rgba(123, 165, 110, 0.15);
-  border: 1px solid var(--accent);
+  background-color: rgba(217, 107, 53, 0.16);
+  border: 1px solid var(--burnt-orange);
   color: var(--text-primary);
 }
 
+.form-feedback.error {
+  display: block;
+  background-color: rgba(239, 68, 68, 0.15);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+}
+
 /* ===================================================================
-   13. FOOTER
+   13. CLIENTS & COLLABORATIONS (Campuses, Summits & Auditoriums)
+   =================================================================== */
+.section-clients {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.client-category-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+  box-shadow: 0 16px 40px rgba(10, 20, 35, 0.4);
+}
+
+.client-category-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-accent);
+  box-shadow: 0 24px 55px rgba(10, 20, 35, 0.65);
+}
+
+.client-cat-header {
+  margin-bottom: 1.6rem;
+}
+
+.client-cat-badge {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+  margin-bottom: 0.45rem;
+  display: inline-block;
+}
+
+.client-cat-title {
+  font-size: 1.45rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.client-chips-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.client-chip {
+  display: flex;
+  flex-direction: column;
+  background: rgba(23, 42, 69, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  transition: all var(--transition-fast);
+}
+
+.client-chip:hover {
+  border-color: var(--amber);
+  background: rgba(30, 53, 87, 0.95);
+  transform: translateY(-2px);
+}
+
+.chip-accent {
+  font-size: 0.72rem;
+  color: var(--amber);
+  margin-bottom: 0.25rem;
+}
+
+.chip-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.chip-detail {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+/* Venues Strip */
+.venues-strip {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.venues-strip-label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--amber);
+  white-space: nowrap;
+}
+
+.venues-tags {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.venue-tag {
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  background: rgba(245, 235, 221, 0.05);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.venue-tag:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: rgba(240, 161, 90, 0.1);
+}
+
+/* ===================================================================
+   14. DEDICATED BOOKING SECTION (Direct Reservations Coming Soon)
+   =================================================================== */
+.section-booking {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-cinematic-card {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-accent);
+  border-radius: 24px;
+  padding: 4.5rem 3.5rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(10, 20, 35, 0.7);
+}
+
+.booking-ambient-glow {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 550px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(240, 161, 90, 0.22) 0%, rgba(217, 107, 53, 0.1) 40%, transparent 72%);
+  pointer-events: none;
+}
+
+.booking-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.booking-title {
+  font-size: clamp(2.6rem, 5.2vw, 4.2rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin: 0.75rem 0 1.25rem 0;
+}
+
+.booking-announcement {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: var(--amber);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.booking-subtext {
+  max-width: 620px;
+  margin: 0 auto 2.5rem auto;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.booking-action-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.btn-booking-soon {
+  background: rgba(240, 161, 90, 0.12);
+  color: var(--amber);
+  border: 1px dashed var(--amber);
+  padding: 0.85rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: not-allowed;
+  opacity: 0.88;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: none;
+}
+
+.btn-booking-soon:hover {
+  transform: none;
+  background: rgba(240, 161, 90, 0.16);
+}
+
+.btn-lock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
+}
+
+/* ===================================================================
+   15. FOOTER
    =================================================================== */
 .site-footer {
-  background-color: #0a0d0c;
+  background-color: var(--bg-footer);
   border-top: 1px solid var(--border-subtle);
   padding-top: 5rem;
   padding-bottom: 2.5rem;
@@ -1818,11 +2439,12 @@ section {
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--amber);
+  transition: color var(--transition-fast);
 }
 
 .footer-social-links a:hover {
-  color: var(--accent-light);
+  color: var(--amber-light);
 }
 
 .footer-heading {
@@ -1841,6 +2463,7 @@ section {
 .footer-nav a {
   color: var(--text-muted);
   font-size: 0.92rem;
+  transition: color var(--transition-fast);
 }
 
 .footer-nav a:hover {
@@ -1858,9 +2481,14 @@ section {
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--amber);
   display: inline-block;
   margin-bottom: 0.5rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-email-link:hover {
+  color: var(--amber-light);
 }
 
 .footer-location {
@@ -1899,7 +2527,7 @@ section {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(12, 24, 39, 0.88);
   backdrop-filter: blur(10px);
 }
 
@@ -1912,7 +2540,7 @@ section {
   border: 1px solid var(--border-accent);
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 24px 60px rgba(10, 20, 35, 0.85);
 }
 
 .modal-close {
@@ -1930,7 +2558,7 @@ section {
 }
 
 .modal-close:hover {
-  color: var(--text-primary);
+  color: var(--amber);
 }
 
 .modal-header {
@@ -1940,6 +2568,7 @@ section {
 
 .modal-title {
   font-size: 1.15rem;
+  color: var(--text-primary);
 }
 
 .modal-body {
@@ -1959,17 +2588,12 @@ section {
 }
 
 /* ===================================================================
-   15. RESPONSIVE DESIGN (Tablets & Mobile Viewports)
+   16. RESPONSIVE DESIGN (Tablets, Mobile & Accessibility)
    =================================================================== */
 @media (max-width: 1024px) {
-  .hero-layout {
-    grid-template-columns: 1fr;
-    gap: 3.5rem;
-  }
-
-  .hero-image-wrap {
-    max-width: 500px;
-    margin: 0 auto;
+  .hero-settled-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
   }
 
   .about-layout {
@@ -1986,10 +2610,6 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .client-logo-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -1998,6 +2618,86 @@ section {
   .footer-layout {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero-scroll-container {
+    min-height: 200vh;
+  }
+
+  .hero-settled-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 1.5rem;
+    text-align: center;
+  }
+
+  .hero-text-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-tagline {
+    font-size: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-stats-strip {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .paper-cut-container {
+    max-width: 320px;
+  }
+
+  .paper-layer-main {
+    aspect-ratio: 4 / 4.5;
+  }
+
+  .hero-angle-switcher {
+    padding: 0.8rem 0.85rem 1.4rem 0.85rem;
+    gap: 0.6rem;
+  }
+
+  .angle-prompt {
+    font-size: 0.72rem;
+  }
+
+  .angle-btn {
+    font-size: 0.76rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .clients-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .client-category-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .client-chips-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .booking-cinematic-card {
+    padding: 3.5rem 2rem;
   }
 }
 
@@ -2021,13 +2721,13 @@ section {
 
   .dock-container {
     display: none;
-    background: rgba(12, 17, 14, 0.96);
+    background: rgba(18, 33, 55, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(123, 165, 110, 0.3);
+    border: 1px solid rgba(240, 161, 90, 0.35);
     padding: 0.65rem 0.8rem;
     border-radius: 16px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 16px 36px rgba(10, 20, 35, 0.75);
     margin-bottom: 0.45rem;
     gap: 0.25rem;
   }
@@ -2090,8 +2790,59 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .client-logo-grid {
+  .audience-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .audience-stats-bar {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .client-chips-list {
+    grid-template-columns: 1fr;
+  }
+
+  .venues-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .booking-cinematic-card {
+    padding: 3rem 1.25rem;
+  }
+
+  .booking-title {
+    font-size: 2.2rem;
+  }
+
+  .booking-announcement {
+    font-size: 1.25rem;
+  }
+
+  .booking-action-wrap {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .booking-action-wrap .btn {
+    width: 100%;
+  }
+
+  .post-show-callout {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+  }
+
+  .callout-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .callout-actions .btn {
+    width: 100%;
   }
 
   .form-row {
@@ -2108,21 +2859,114 @@ section {
   }
 }
 
+@media (max-width: 480px) {
+  .audience-stats-bar {
+    grid-template-columns: 1fr;
+  }
 
-.text-yellow-highlight {
-  color: var(--yellow-touch);
+  .hero-stats-strip {
+    gap: 1.25rem;
+  }
+
+  .stat-num {
+    font-size: 1.5rem;
+  }
+
+  .intro-name-first,
+  .intro-name-last {
+    font-size: clamp(2.4rem, 10vw, 3.2rem);
+  }
+
+  .profession-tagline {
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+  }
+
+  .profession-rule {
+    width: 25px;
+  }
+}
+
+/* 16.1 Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-scroll-container {
+    min-height: auto !important;
+    height: auto !important;
+    position: static !important;
+  }
+
+  .hero-sticky-stage {
+    position: relative !important;
+    height: auto !important;
+    padding: 6.5rem 0 4.5rem 0 !important;
+  }
+
+  .hero-initial-center {
+    display: none !important;
+  }
+
+  .hero-settled-layout {
+    display: grid !important;
+  }
+
+  .hero-settled-name {
+    display: block !important;
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  .settled-first {
+    display: block;
+    color: var(--text-primary);
+  }
+
+  .settled-last {
+    display: block;
+    color: var(--burnt-orange);
+    background: linear-gradient(135deg, var(--burnt-orange) 10%, var(--amber) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-text-content,
+  .hero-visual {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ===================================================================
+   17. DECORATIVE HIGHLIGHTS
+   =================================================================== */
+.text-yellow-highlight,
+.text-amber-highlight {
+  color: var(--amber);
   position: relative;
   display: inline-block;
 }
 
-.text-yellow-highlight::after {
+.text-yellow-highlight::after,
+.text-amber-highlight::after {
   content: '';
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--yellow-touch);
+  background: var(--amber);
   border-radius: 2px;
-  opacity: 0.8;
+  opacity: 0.85;
 }

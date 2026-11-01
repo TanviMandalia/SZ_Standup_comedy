@@ -1,12 +1,214 @@
 /**
  * SAURABH ZINZUVADIYA — OFFICIAL STAND-UP COMEDY PORTFOLIO
- * Interaction Engine: Sapan Verma-Style Kinetic Sidebar Navigation, Video Modal & Form Validation
+ * Interaction & Animation Engine:
+ *  - Cinematic Scroll-Driven Hero Reveal & Paper-Cut Portrait (GSAP + ScrollTrigger)
+ *  - Configurable Google Reviews URL
+ *  - Sapan Verma-Style Kinetic Sidebar Navigation
+ *  - Real Stage Photo Camera Angle Switcher
+ *  - Video Modal Player
+ *  - Booking & Contact Form Validation
  */
+
+// 1. CONFIGURABLE GOOGLE REVIEWS URL
+// Defaults to live Google Search reviews query for Saurabh Zinzuvadiya to avoid 404 errors.
+// When a specific Google Business Profile place ID is created, simply replace this URL
+// (e.g., 'https://g.page/r/YOUR_ID/review' or 'https://search.google.com/local/reviews?placeid=YOUR_PLACE_ID').
+const GOOGLE_REVIEW_URL = 'https://www.google.com/search?q=Saurabh+Zinzuvadiya+comedy+reviews';
 
 document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  // 1. SAPAN VERMA KINETIC SIDEBAR NAVIGATION ENGINE
+  // Apply Configurable Google Reviews URL to all matching buttons/links
+  const googleReviewLinks = document.querySelectorAll('.btn-google-reviews, #btnGoogleReviews');
+  googleReviewLinks.forEach(function (link) {
+    link.href = GOOGLE_REVIEW_URL;
+  });
+
+  // Check Accessibility: prefers-reduced-motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===================================================================
+  // 2. GSAP & SCROLLTRIGGER CINEMATIC HERO & SCROLL-DRIVEN ENGINE
+  // ===================================================================
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !prefersReducedMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const heroContainer = document.querySelector('.hero-scroll-container');
+    const heroStickyStage = document.getElementById('heroStickyStage');
+    const heroMonumentalName = document.getElementById('heroMonumentalName');
+    const heroProfessionBanner = document.getElementById('heroProfessionBanner');
+    const heroScrollCue = document.getElementById('heroScrollCue');
+    const heroTextContent = document.getElementById('heroTextContent');
+    const heroVisual = document.getElementById('heroVisual');
+    const paperLayerAmber = document.querySelector('.paper-layer-amber');
+    const paperLayerIvory = document.querySelector('.paper-layer-ivory');
+    const paperPortrait = document.getElementById('heroStagePhoto');
+
+    if (heroContainer && heroMonumentalName && heroVisual) {
+      const mm = gsap.matchMedia();
+
+      // DESKTOP & LAPTOP (>= 992px)
+      mm.add('(min-width: 992px)', function () {
+        // Initial setup
+        gsap.set(heroMonumentalName, { x: 0, y: 0, scale: 1, transformOrigin: 'center center' });
+        gsap.set(heroProfessionBanner, { opacity: 1, y: 0 });
+        gsap.set(heroScrollCue, { opacity: 0.85, y: 0 });
+        gsap.set(heroTextContent, { opacity: 0, y: 40 });
+        gsap.set(heroVisual, { opacity: 0, x: 70, scale: 0.92 });
+
+        const heroTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: heroContainer,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1.1,
+            anticipatePin: 1
+          }
+        });
+
+        // Phase 1 (0 -> 45%): Transform Name to Left & Reveal Paper-Cut Portrait on Right
+        heroTl
+          // Scroll cue fades out immediately on first scroll
+          .to(heroScrollCue, { opacity: 0, y: -15, duration: 0.15, ease: 'power1.out' }, 0)
+          // Profession subtitle fades smoothly
+          .to(heroProfessionBanner, { opacity: 0, y: -20, duration: 0.25, ease: 'power1.out' }, 0.05)
+          // Comedian's Name transforms from large hero center to left-anchored position
+          .to(heroMonumentalName, {
+            x: '-25vw',
+            y: '-18vh',
+            scale: 0.52,
+            duration: 0.65,
+            ease: 'power2.inOut'
+          }, 0.1)
+          // Paper-Cut Portrait reveals with torn-paper depth on the right
+          .to(heroVisual, {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            duration: 0.65,
+            ease: 'power2.out'
+          }, 0.15)
+          // Subtle torn-paper layers parallax for tangible depth
+          .to(paperLayerAmber, { rotation: 3.5, scale: 1.03, duration: 0.65, ease: 'power1.out' }, 0.15)
+          .to(paperLayerIvory, { rotation: -2.8, scale: 1.02, duration: 0.65, ease: 'power1.out' }, 0.15)
+          .to(paperPortrait, { scale: 1.06, duration: 0.65, ease: 'power1.out' }, 0.15)
+          // Settled Bio and CTAs fade in smoothly on the left
+          .to(heroTextContent, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power2.out'
+          }, 0.35)
+          // Phase 2 (45% -> 85%): Resting Hold for effortless reading and interaction
+          .to({}, { duration: 0.4 })
+          // Phase 3 (85% -> 100%): Smooth cinematic transition out into #shows
+          .to(heroStickyStage, {
+            opacity: 0.95,
+            y: -30,
+            duration: 0.2,
+            ease: 'power1.in'
+          }, 0.85);
+
+        return function () {
+          heroTl.kill();
+        };
+      });
+
+      // TABLET & MOBILE (< 992px)
+      mm.add('(max-width: 991px)', function () {
+        // Initial setup for mobile to prevent overlapping
+        gsap.set(heroMonumentalName, { y: 0, scale: 1, transformOrigin: 'center center' });
+        gsap.set(heroProfessionBanner, { opacity: 1, y: 0 });
+        gsap.set(heroScrollCue, { opacity: 0.85 });
+        gsap.set(heroVisual, { opacity: 0, y: 40, scale: 0.92 });
+        gsap.set(heroTextContent, { opacity: 0, y: 30 });
+
+        const mobileHeroTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: heroContainer,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1.1
+          }
+        });
+
+        // Mobile Sequence: Name scales and shifts up, Portrait appears below without overlap
+        mobileHeroTl
+          .to(heroScrollCue, { opacity: 0, duration: 0.15 }, 0)
+          .to(heroProfessionBanner, { opacity: 0, y: -15, duration: 0.2 }, 0.05)
+          .to(heroMonumentalName, {
+            y: '-20vh',
+            scale: 0.62,
+            duration: 0.6,
+            ease: 'power2.inOut'
+          }, 0.1)
+          .to(heroVisual, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            ease: 'power2.out'
+          }, 0.2)
+          .to(heroTextContent, {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power2.out'
+          }, 0.35)
+          .to({}, { duration: 0.35 });
+
+        return function () {
+          mobileHeroTl.kill();
+        };
+      });
+    }
+
+    // Scroll-Triggered Section Reveals for Cinematic Polish
+    const revealTargets = [
+      '.tour-banner-card',
+      '.ticket-row',
+      '.video-card',
+      '.about-portrait-card',
+      '.about-text-column',
+      '.review-unit',
+      '.stat-pill',
+      '.attendee-card',
+      '.client-category-card',
+      '.venues-strip',
+      '.booking-cinematic-card',
+      '.contact-card'
+    ];
+
+    revealTargets.forEach(function (selector) {
+      const items = document.querySelectorAll(selector);
+      items.forEach(function (item) {
+        gsap.from(item, {
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 88%',
+            toggleActions: 'play none none none'
+          },
+          opacity: 0,
+          y: 28,
+          duration: 0.7,
+          ease: 'power2.out'
+        });
+      });
+    });
+
+  } else {
+    // Reduced motion or GSAP fallback: ensure settled hero elements are naturally visible
+    const heroText = document.getElementById('heroTextContent');
+    const heroVis = document.getElementById('heroVisual');
+    const heroInit = document.getElementById('heroInitialCenter');
+    if (heroText) heroText.style.opacity = '1';
+    if (heroVis) heroVis.style.opacity = '1';
+    if (heroInit && prefersReducedMotion) heroInit.style.display = 'none';
+  }
+
+  // ===================================================================
+  // 3. SAPAN VERMA KINETIC SIDEBAR NAVIGATION ENGINE
+  // ===================================================================
   const dockItems = document.querySelectorAll('.dock-item');
   const sections = document.querySelectorAll('section[id]');
   const dockBackTop = document.getElementById('dockBackTop');
@@ -101,7 +303,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 2. Interactive Camera Angle Switcher (Real Stage Photos)
+  // ===================================================================
+  // 4. INTERACTIVE STAGE ANGLE SWITCHER (Real Stage Photos)
+  // ===================================================================
   const heroStagePhoto = document.getElementById('heroStagePhoto');
   const angleBtns = document.querySelectorAll('.angle-btn');
 
@@ -121,7 +325,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 3. Video Modal Player
+  // ===================================================================
+  // 5. VIDEO MODAL PLAYER
+  // ===================================================================
   const videoModal = document.getElementById('videoModal');
   const modalBackdrop = document.getElementById('modalBackdrop');
   const modalClose = document.getElementById('modalClose');
@@ -175,7 +381,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // 4. Booking Form Submission Handling
+  // ===================================================================
+  // 6. CONTACT & MANAGEMENT INQUIRIES FORM
+  // ===================================================================
   const bookingForm = document.getElementById('bookingForm');
   const formFeedback = document.getElementById('formFeedback');
   const submitBtn = document.getElementById('submitBtn');
@@ -216,7 +424,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <strong>Thank you, ${name}!</strong><br>
             Your event enquiry for <strong>${eventType}</strong> in <strong>${location}</strong> on <strong>${eventDate}</strong> has been received.<br>
             Saurabh's management team will review your requirements and respond at <strong>${email}</strong> within 24 hours.<br><br>
-            <a href="https://wa.me/919876543210?text=Hi%20Saurabh%20Management,%20I%20just%20submitted%20an%20event%20booking%20enquiry%20for%20${encodeURIComponent(eventType)}%20on%20${encodeURIComponent(eventDate)}" target="_blank" style="color:var(--accent); font-weight:700; text-decoration:underline;">
+            <a href="https://wa.me/919876543210?text=Hi%20Saurabh%20Management,%20I%20just%20submitted%20an%20event%20booking%20enquiry%20for%20${encodeURIComponent(eventType)}%20on%20${encodeURIComponent(eventDate)}" target="_blank" style="color:var(--burnt-orange); font-weight:700; text-decoration:underline;">
               Click here to follow up instantly on WhatsApp →
             </a>
           `;
