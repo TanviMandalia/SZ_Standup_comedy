@@ -111,54 +111,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return function () {
           heroTl.kill();
+          gsap.set([heroMonumentalName, heroProfessionBanner, heroScrollCue, heroTextContent, heroVisual, heroStickyStage], { clearProps: 'all' });
         };
       });
 
       // TABLET & MOBILE (< 992px)
       mm.add('(max-width: 991px)', function () {
-        // Initial setup for mobile to prevent overlapping
-        gsap.set(heroMonumentalName, { y: 0, scale: 1, transformOrigin: 'center center' });
-        gsap.set(heroProfessionBanner, { opacity: 1, y: 0 });
-        gsap.set(heroScrollCue, { opacity: 0.85 });
-        gsap.set(heroVisual, { opacity: 0, y: 40, scale: 0.92 });
-        gsap.set(heroTextContent, { opacity: 0, y: 30 });
+        // Clear desktop inline transforms so responsive CSS takes full control
+        gsap.set([heroMonumentalName, heroProfessionBanner, heroScrollCue, heroTextContent, heroVisual, heroStickyStage], { clearProps: 'all' });
 
-        const mobileHeroTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: heroContainer,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 1.1
+        // Smooth scroll cue fade as user begins scrolling down on mobile
+        const mobileCueTrigger = ScrollTrigger.create({
+          trigger: heroContainer,
+          start: 'top top',
+          end: '180px top',
+          onUpdate: function (self) {
+            if (heroScrollCue) {
+              gsap.to(heroScrollCue, { opacity: Math.max(0, 0.85 - self.progress * 1.5), duration: 0.1 });
+            }
           }
         });
 
-        // Mobile Sequence: Name scales and shifts up, Portrait appears below without overlap
-        mobileHeroTl
-          .to(heroScrollCue, { opacity: 0, duration: 0.15 }, 0)
-          .to(heroProfessionBanner, { opacity: 0, y: -15, duration: 0.2 }, 0.05)
-          .to(heroMonumentalName, {
-            y: '-20vh',
-            scale: 0.62,
-            duration: 0.6,
-            ease: 'power2.inOut'
-          }, 0.1)
-          .to(heroVisual, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.6,
-            ease: 'power2.out'
-          }, 0.2)
-          .to(heroTextContent, {
-            opacity: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out'
-          }, 0.35)
-          .to({}, { duration: 0.35 });
-
         return function () {
-          mobileHeroTl.kill();
+          mobileCueTrigger.kill();
+          gsap.set([heroMonumentalName, heroProfessionBanner, heroScrollCue, heroTextContent, heroVisual, heroStickyStage], { clearProps: 'all' });
         };
       });
     }
